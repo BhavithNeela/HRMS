@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonus Management System</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        ::-webkit-scrollbar{
+            display: none;
+        }
+        .main-section {
+             background: linear-gradient(to right, #0f2027, #2684a3, #7bb9d3);
+            color: #fff;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 350px;
+        }
+        .main-content {
+            flex: 1;
+            padding-right: 30px;
+        }
+        .main-content h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 700;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+        .main-content p {
+            margin: 20px 0 0;
+            font-size: 1.3em;
+            line-height: 1.6;
+        }
+        .main-content .cta-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #00cc99;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .main-content .cta-button:hover {
+            background-color: #00b386;
+            transform: scale(1.05);
+        }
+        .main-image {
+            flex: 1;
+            text-align: right;
+        }
+        .main-image img {
+            max-width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        .features, .faq, .signup {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #fff;
+        }
+        .features h2, .faq h2, .signup h2 {
+            color: #1e3c72;
+            text-align: center;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .features hr, .faq hr, .signup hr {
+            border: 2px solid #00cc99;
+            width: 60px;
+            margin: 0 auto 30px;
+        }
+        .feature-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .feature-card {
+            background: #f9f9f9;
+            width: 20%;
+            margin: 15px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+        .feature-card i {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: #1e3c72;
+        }
+        .feature-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        .feature-card p {
+            color: #555;
+            margin: 0;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .feature-card.smart { border-left: 5px solid #1e3c72; }
+        .feature-card.live { border-left: 5px solid #00cc99; }
+        .feature-card.custom { border-left: 5px solid #ff6b6b; }
+        .faq-item {
+            margin: 15px 0;
+            padding: 10px;
+            background: #f1f1f1;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+         #faq {
+      background: #f8faff;
+      padding: 1rem 0;
+    }
+
+    .faq-container {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding: 0 0rem;
+    }
+
+    .faq-item {
+      background: white;
+      border-left: 5px solid blue;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: rgba(0, 188, 212, 0.05);
+    }
+
+    .faq-question i {
+      color: #00bcd4;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-question {
+      background: rgba(0, 188, 212, 0.1);
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 1.5rem 1.5rem;
+    }
+        .signup {
+            background: linear-gradient(135deg, #2a5298, #1e3c72);
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .signup p {
+            margin-bottom: 25px;
+            font-size: 1.2em;
+        }
+        .signup-form {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .signup-form input {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            width: 250px;
+        }
+        .signup-form button {
+            padding: 12px 25px;
+            background-color: #00cc99;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        .signup-form button:hover {
+            background-color: #00b386;
+        }
+        @media (max-width: 600px) {
+            .main-section { flex-direction: column; text-align: center; min-height: 350px; }
+            .main-image { margin-top: 20px; }
+            .feature-card { width: 100%; }
+            .signup-form { flex-direction: column; }
+            .signup-form input, .signup-form button { width: 100%; margin-bottom: 10px; }
+        }
+        h2 {
+      color: #003366;
+      margin-bottom: 2rem;
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-align: center;
+      position: relative;
+      display: block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #00bcd4;
+      border-radius: 2px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    </style>
+</head>
+<body>
+    <div class="main-section">
+        <div class="main-content">
+            <h1>Elevate Your Workforce</h1>
+            <p>Streamline bonus allocation, ensure accuracy, and empower your employees with real-time tracking and intelligent reporting.</p>
+            <a href="#signup" class="cta-button">Start Your Free Trial</a>
+        </div>
+        <div class="main-image">
+            <img src="bonus.png" alt="Bonus System">
+        </div>
+    </div>
+    <div class="features">
+        <h2>Key Features Driving Efficiency</h2>
+        <hr>
+        <div class="feature-cards">
+            <div class="feature-card smart">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Smart Bonus Allocation</h3>
+                <p>Track and allocate bonuses from anywhere using web or mobile apps with advanced performance tracking.</p>
+            </div>
+            <div class="feature-card live">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Live Real-time Updates</h3>
+                <p>Gain immediate insights into bonus distributions with dynamic live dashboards and real-time updates.</p>
+            </div>
+            <div class="feature-card custom">
+                <i class="fas fa-user-cog"></i>
+                <h3>Customizable Plans</h3>
+                <p>Enhance flexibility with customizable bonus plans tailored to different employee categories.</p>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <hr>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <h3>What is a bonus management system? <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></h3>
+            <p>A system to efficiently track and distribute employee bonuses with real-time updates.</p>
+        </div>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <h3>How does it benefit my business? <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></h3>
+            <p>It saves time, ensures accuracy, and boosts employee morale with fair bonus distribution.</p>
+        </div>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <h3>Can I customize bonus types? <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></h3>
+            <p>Yes, you can set up various bonus types like performance or festive bonuses.</p>
+        </div>
+    </div> -->
+    <section id="faq">
+    <div class="container">
+      <h2 class="animate__animated animate__fadeIn">Frequently Asked Questions</h2>
+      <p class="text-center animate__animated animate__fadeIn animate__delay-1s" style="text-align: center ;" >
+        Find answers to common questions about our IT Bonus solutions.
+      </p>
+      <div class="faq-container">
+        <div class="faq-item animate__animated animate__fadeIn">
+          <div class="faq-question">
+            <span>How long does IT onboarding typically take?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>With our automated system, basic IT onboarding can be completed in as little as 15 minutes for standard roles. More complex positions with specialized access requirements may take up to 24 hours. This is significantly faster than traditional manual processes which often take 3-5 business days.</p>
+          </div>
+        </div>
+        <div class="faq-item animate__animated animate__fadeIn animate__delay-1s">
+          <div class="faq-question">
+            <span>What systems can you integrate with?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our platform integrates with all major HR systems (Workday, BambooHR, ADP), identity providers (Okta, Azure AD), productivity suites (Microsoft 365, Google Workspace), and hundreds of other business applications through our API and pre-built connectors. We can also develop custom integrations for proprietary systems.</p>
+          </div>
+        </div>
+        <div class="faq-item animate__animated animate__fadeIn animate__delay-2s">
+            <div class="faq-question">
+              <span>Is your solution scalable for large enterprises?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Absolutely. Our IT Bonus solution is designed with scalability in mind, capable of handling hundreds to thousands of new hires concurrently without compromising performance or security. We leverage cloud-native technologies to ensure elasticity and reliability for organizations of all sizes.</p>
+            </div>
+          </div>
+          <div class="faq-item animate__animated animate__fadeIn animate__delay-3s">
+            <div class="faq-question">
+              <span>How does it improve security during Bonus?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Our system enhances security by automating role-based access control (RBAC), ensuring new hires only get access to what's strictly necessary for their role. It also centralizes account provisioning, enforces strong password policies, and facilitates immediate revocation of access upon termination, significantly reducing the risk of unauthorized access and data breaches.</p>
+            </div>
+          </div>
+          <div class="faq-item animate__animated animate__fadeIn animate__delay-4s">
+            <div class="faq-question">
+              <span>Do you offer customized training for new hires?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, we offer customizable digital training modules that can be tailored to your company's specific technology stack, security policies, and compliance requirements. This ensures new hires are not only provisioned with the right tools but also educated on how to use them securely and effectively from day one.</p>
+            </div>
+          </div>
+          <div class="faq-item animate__animated animate__fadeIn animate__delay-5s">
+            <div class="faq-question">
+              <span>What kind of reporting and analytics are available?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Our platform provides comprehensive reporting and analytics dashboards, offering insights into key metrics such as average Bonus time, task completion rates, departmental efficiency, and compliance adherence. These reports help identify bottlenecks and optimize your onboarding process continuously.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+    <div class="signup" id="signup">
+        <h2 style="color:white">Sign Up for Free Trial</h2>
+        <hr>
+        <p>Start optimizing your bonus management today. No credit card required!</p>
+        <div class="signup-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Get Started</button>
+        </div>
+    </div>
+    <script>
+        function toggleFAQ(element) {
+            element.classList.toggle('active');
+        }
+        
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // FAQ functionality
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+
+      // Demo modal functionality
+      const demoBtn = document.getElementById('demo-btn');
+      const demoModal = document.getElementById('demo-modal');
+      const closeModal = document.getElementById('close-modal');
+      const demoForm = document.getElementById('demo-request-form');
+      const successMessage = document.getElementById('success-message');
+
+      demoBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        demoModal.style.display = 'flex';
+      });
+
+      closeModal.addEventListener('click', () => {
+        demoModal.style.display = 'none';
+      });
+
+      window.addEventListener('click', (e) => {
+        if (e.target === demoModal) {
+          demoModal.style.display = 'none';
+        }
+      });
+
+      demoForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        demoForm.style.display = 'none';
+        successMessage.style.display = 'block';
+        
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          demoModal.style.display = 'none';
+          demoForm.style.display = 'block';
+          successMessage.style.display = 'none';
+          demoForm.reset();
+        }, 3000);
+      });
+    });
+  </script>
+</body>
+</html>

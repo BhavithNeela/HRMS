@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Testimonials</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      
+    }
+    ::-webkit-scrollbar{
+        display: none;
+    }
+
+    .testimonial-container {
+       
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .testimonial-title {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .testimonial-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+   .testimonial-card {
+  background-color: #fff;
+  border-top: 4px solid blue;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  padding: 30px 25px;
+  max-width: 290px;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+}
+
+    .testimonial-image {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+       border: 3px solid #1253cc;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-name {
+        font-size: 20px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    .testimonial-role {
+      color: #3127c2;
+      font-weight: 550;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-stars {
+      color: #f5a623;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="testimonial-container">
+    <h2 class="testimonial-title">What Our Clients Say</h2>
+    <div class="testimonial-list" id="testimonialList">
+      <!-- Testimonials will be injected here -->
+    </div>
+  </div>
+
+  <script>
+    const testimonials = [
+      {
+    id: 1,
+    name: "Jane Doe",
+    role: "Product Manager at Acme Corp",
+    image: "https://i.pravatar.cc/100?img=5",
+    rating: 5,
+    text: "This service was amazing! It helped our team boost productivity and meet tight deadlines effortlessly."
+  },
+  {
+    id: 2,
+    name: "John Smith",
+    role: "Developer at TechWave",
+    image: "https://i.pravatar.cc/100?img=12",
+    rating: 4,
+    text: "The support was outstanding and the product is intuitive and fast. Highly recommended!"
+  },
+  {
+    id: 3,
+    name: "Emily Johnson",
+    role: "Designer at Creative Studio",
+    image: "https://i.pravatar.cc/100?img=32",
+    rating: 5,
+    text: "Beautiful interface and a very smooth experience. This is a game changer for designers."
+  },
+  {
+    id: 4,
+    name: "Carlos Martinez",
+    role: "Marketing Lead at BrightIdeas",
+    image: "https://i.pravatar.cc/100?img=21",
+    rating: 5,
+    text: "A must-have tool for any marketing team. It made collaboration so much easier and more transparent."
+  },
+  {
+    id: 5,
+    name: "Linda Zhao",
+    role: "CEO at FutureNow",
+    image: "https://i.pravatar.cc/100?img=47",
+    rating: 5,
+    text: "We've seen measurable results in just weeks. The ROI speaks for itself — simply incredible."
+  },
+  {
+    id: 6,
+    name: "Mohamed Ali",
+    role: "Data Analyst at Insight360",
+    image: "https://i.pravatar.cc/100?img=33",
+    rating: 5,
+    text: "I love how data-driven and easy to use the platform is. The insights have been invaluable to our strategy."
+  },
+  {
+    id: 7,
+    name: "Sophia Lee",
+    role: "Freelance Developer",
+    image: "https://i.pravatar.cc/100?img=45",
+    rating: 5,
+    text: "It saved me hours of manual work every week. As a freelancer, that time is gold."
+  },
+  {
+    id: 8,
+    name: "Daniel Thompson",
+    role: "Founder of StartRight",
+    image: "https://i.pravatar.cc/100?img=14",
+    rating: 5,
+    text: "From onboarding to launch, the experience was seamless. One of the best investments we made."
+  }
+    ];
+
+    function renderStars(rating) {
+      const full = '★'.repeat(rating);
+      const empty = '☆'.repeat(5 - rating);
+      return full + empty;
+    }
+
+    const container = document.getElementById('testimonialList');
+
+    testimonials.forEach((testimonial) => {
+      const card = document.createElement('div');
+      card.className = 'testimonial-card';
+
+      card.innerHTML = `
+        <img src="${testimonial.image}" alt="${testimonial.name}" class="testimonial-image">
+       
+       
+        <h3 class="testimonial-name">${testimonial.name}</h3>
+        <p class="testimonial-role">${testimonial.role}</p>
+         <p class="testimonial-text">"${testimonial.text}"</p>
+         <div class="testimonial-stars">${renderStars(testimonial.rating)}</div>
+        
+      `;
+
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
+<!-- apps-fileview.texmex_20250710.00_p0
+testimonials1.txt
+Displaying testimonials1.txt. -->

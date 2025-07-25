@@ -1,0 +1,915 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced HRMS Pricing - Premium Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --dark-gradient: linear-gradient(135deg, #434343 0%, #000000 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow-light: 0 8px 32px rgba(31, 38, 135, 0.37);
+            --shadow-heavy: 0 15px 35px rgba(31, 38, 135, 0.5);
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #6b35a5 0%, #4385f7 100%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Animated Background Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 120px; height: 120px; left: 20%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 60px; height: 60px; left: 70%; animation-delay: 4s; }
+        .particle:nth-child(4) { width: 100px; height: 100px; left: 80%; animation-delay: 1s; }
+        .particle:nth-child(5) { width: 40px; height: 40px; left: 50%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-100px) rotate(180deg); opacity: 1; }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 5px 0 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideInDown 1s ease-out;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInUp 1s ease-out 0.3s both;
+            line-height: 1.6;
+        }
+
+        /* Module Selection Section */
+        .modules-section {
+            background:white;
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 5px 20px;
+            margin: 50px 0;
+            box-shadow: var(--shadow-light);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color:black;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-gradient);
+            border-radius: 2px;
+            animation: expandWidth 1s ease-out 1s both;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: black;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease-out 1.2s both;
+        }
+
+        /* Enhanced Module Grid */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+            margin-bottom: 60px;
+        }
+
+        .module-card {
+            background: rgba(162, 207, 234, 0.95);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: slideInUp 0.6s ease-out both;
+        }
+
+        .module-card:nth-child(1) { animation-delay: 0.1s; }
+        .module-card:nth-child(2) { animation-delay: 0.2s; }
+        .module-card:nth-child(3) { animation-delay: 0.3s; }
+        .module-card:nth-child(4) { animation-delay: 0.4s; }
+        .module-card:nth-child(5) { animation-delay: 0.5s; }
+        .module-card:nth-child(6) { animation-delay: 0.6s; }
+        .module-card:nth-child(7) { animation-delay: 0.7s; }
+        .module-card:nth-child(8) { animation-delay: 0.8s; }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .module-card:hover::before {
+            left: 100%;
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: #667eea;
+        }
+
+        .module-card.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .module-card.selected .module-icon {
+            color: rgb(98, 185, 243);
+            transform: scale(1.2) rotate(360deg);
+        }
+
+        .module-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #667eea;
+            transition: all 0.4s ease;
+        }
+
+        .module-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .module-price {
+            font-size: 1.1rem;
+            font-weight: 500;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .module-card.selected .module-price {
+            opacity: 1;
+            font-weight: 600;
+        }
+
+        /* Total Summary */
+        .total-summary {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            margin: 60px 0;
+            box-shadow: var(--shadow-light);
+            animation: fadeInUp 1s ease-out 2s both;
+        }
+
+        .total-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .total-price {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #4ade80;
+            margin-bottom: 30px;
+            animation: countUp 1s ease-out;
+        }
+
+        .total-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            background: var(--success-gradient);
+            color: white;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.6);
+        }
+
+        /* Payment Confirmation Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            max-width: 500px;
+            width: 90%;
+            color: var(--text-primary);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .modal-summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        .modal-summary-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .modal-summary-total {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 20px;
+            color: #4ade80;
+        }
+
+        .payment-methods-selection {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .payment-methods-selection label {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            transition: all 0.2s ease;
+        }
+
+        .payment-methods-selection label:hover {
+            background: #e9f5ff;
+            border-color: #667eea;
+        }
+
+        .payment-methods-selection input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .modal-buttons button {
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .modal-buttons .confirm-button {
+            background: var(--success-gradient);
+            color: white;
+        }
+
+        .modal-buttons .confirm-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+        }
+
+        .modal-buttons .cancel-button {
+            background: #f0f2f5;
+            color: #555;
+            border: 1px solid #ddd;
+        }
+
+        .modal-buttons .cancel-button:hover {
+            background: #e0e2e5;
+        }
+      ::-webkit-scrollbar{
+        display: none
+      }
+        /* Thank You Message */
+        .thank-you-message {
+            background: white;
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            margin: 60px auto;
+            max-width: 600px;
+            box-shadow: var(--shadow-light);
+            color: var(--text-primary);
+            display: none; /* Hidden by default */
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .thank-you-message h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .thank-you-message p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .thank-you-message .check-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 20px;
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+
+
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 100px; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes countUp {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-title { font-size: 3.5rem; }
+            .modules-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.8rem; }
+            .section-title { font-size: 2.2rem; }
+            .modules-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+            .modules-section, .total-summary, .modal-content { padding: 30px 20px; }
+            .modal-summary-item, .payment-methods-selection label { font-size: 1rem; }
+            .modal-title { font-size: 1.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .module-card { padding: 20px; }
+            .cta-button { padding: 15px 30px; font-size: 1.1rem; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gradient);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-gradient);
+        }
+    </style>
+</head>
+<body>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="container">
+        <section class="hero-section">
+            <h1 class="hero-title">Custom HRMS Solution Pricing</h1>
+             <!-- <p class="hero-subtitle"> Select the modules you need for a transparent one-time payment.</p> -->
+        </section>
+
+        <section class="modules-section">
+            <h2 class="section-title">Select Your Modules</h2>
+            <p class="section-subtitle">Build your perfect HR solution by selecting the modules that match your organization's needs. All prices are one-time payments.</p>
+
+            <div class="modules-grid">
+                <div class="module-card" data-module="onboarding" data-price="125">
+                    <div class="module-icon"><i class="fas fa-user-plus"></i></div>
+                    <div class="module-name">Onboarding</div>
+                    <div class="module-price">$125</div>
+                </div>
+
+                <div class="module-card" data-module="offboarding" data-price="95">
+                    <div class="module-icon"><i class="fas fa-user-minus"></i></div>
+                    <div class="module-name">Offboarding</div>
+                    <div class="module-price">$95</div>
+                </div>
+
+                <div class="module-card" data-module="assets" data-price="80">
+                    <div class="module-icon"><i class="fas fa-laptop"></i></div>
+                    <div class="module-name">Assets Management</div>
+                    <div class="module-price">$80</div>
+                </div>
+
+                <div class="module-card" data-module="appraisal" data-price="155">
+                    <div class="module-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <div class="module-name">Appraisal System</div>
+                    <div class="module-price">$155</div>
+                </div>
+
+                <div class="module-card" data-module="claims" data-price="90">
+                    <div class="module-icon"><i class="fas fa-receipt"></i></div>
+                    <div class="module-name">Claims & Expenses</div>
+                    <div class="module-price">$90</div>
+                </div>
+
+                <div class="module-card" data-module="career" data-price="120">
+                    <div class="module-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="module-name">Career Progression</div>
+                    <div class="module-price">$120</div>
+                </div>
+
+                <div class="module-card" data-module="payslip" data-price="65">
+                    <div class="module-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <div class="module-name">Payslip Generation</div>
+                    <div class="module-price">$65</div>
+                </div>
+
+                <div class="module-card" data-module="increment" data-price="80">
+                    <div class="module-icon"><i class="fas fa-coins"></i></div>
+                    <div class="module-name">Increment & Bonus</div>
+                    <div class="module-price">$80</div>
+                </div>
+            </div>
+
+            </section>
+
+        <section class="total-summary">
+            <h3 class="total-title">Your Custom Package Total</h3>
+            <div class="total-price" id="totalPrice">$0</div>
+            <p class="total-description">This is a one-time payment for your selected modules.</p>
+            <button class="cta-button" onclick="showPaymentModal()">Request Payment Details</button>
+        </section>
+
+        <section class="thank-you-message" id="thankYouMessage">
+            <div class="check-icon"><i class="fas fa-check-circle"></i></div>
+            <h3>Thank You for Your Order!</h3>
+            <p>Your request for payment details has been received. Our team will contact you shortly to finalize the purchase for the selected modules.</p>
+            <p>Accepted payment methods: Cash, Credit Cards, Checks.</p>
+        </section>
+    </div>
+
+    <div class="modal-overlay" id="paymentModalOverlay">
+        <div class="modal-content">
+            <h3 class="modal-title">Confirm Your Purchase</h3>
+            <div id="modalSummary">
+                </div>
+            <div class="payment-methods-selection">
+                <p>How would you like to pay?</p>
+                <label>
+                    <input type="radio" name="paymentMethod" value="cash" checked>
+                    Cash
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="credit_card">
+                    Credit Card
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="check">
+                    Check
+                </label>
+            </div>
+            <div class="modal-buttons">
+                <button class="confirm-button" onclick="confirmPayment()">Confirm Payment</button>
+                <button class="cancel-button" onclick="hidePaymentModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class PricingCalculator {
+            constructor() {
+                this.selectedModules = new Set();
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.updatePricing();
+                this.startAnimations();
+            }
+
+            bindEvents() {
+                // Module selection
+                document.querySelectorAll('.module-card').forEach(card => {
+                    card.addEventListener('click', (e) => this.toggleModule(e.currentTarget));
+                });
+            }
+
+            toggleModule(card) {
+                const module = card.dataset.module;
+
+                if (this.selectedModules.has(module)) {
+                    this.selectedModules.delete(module);
+                    card.classList.remove('selected');
+                    this.animateCardDeselect(card);
+                } else {
+                    this.selectedModules.add(module);
+                    card.classList.add('selected');
+                    this.animateCardSelect(card);
+                }
+
+                this.updatePricing();
+            }
+
+            updatePricing() {
+                let totalPrice = 0;
+                const moduleDetails = []; // Store selected module names and prices for the modal
+
+                this.selectedModules.forEach(module => {
+                    const card = document.querySelector(`[data-module="${module}"]`);
+                    const price = parseFloat(card.dataset.price);
+                    const name = card.querySelector('.module-name').textContent;
+                    totalPrice += price;
+                    moduleDetails.push({ name, price });
+                });
+
+                // Update total price display
+                const totalElement = document.getElementById('totalPrice');
+                this.animateNumber(totalElement, totalPrice);
+
+                // Store module details for the modal
+                this.currentModuleDetails = moduleDetails;
+                this.currentTotalPrice = totalPrice;
+            }
+
+            animateNumber(element, targetValue) {
+                const startValue = parseFloat(element.textContent.replace(/[^0-9.]/g, '')) || 0;
+                const duration = 800;
+                const startTime = performance.now();
+
+                const animate = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+
+                    const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                    const currentValue = startValue + (targetValue - startValue) * easeOutCubic;
+
+                    element.textContent = `$${Math.round(currentValue)}`;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    }
+                };
+
+                requestAnimationFrame(animate);
+            }
+
+            animateCardSelect(card) {
+                card.style.transform = 'translateY(-10px) scale(1.05) rotateY(5deg)';
+                setTimeout(() => {
+                    card.style.transform = 'translateY(-5px) scale(1.05)';
+                }, 200);
+            }
+
+            animateCardDeselect(card) {
+                card.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    card.style.transform = 'scale(1)';
+                }, 200);
+            }
+
+            startAnimations() {
+                this.animateParticles();
+                this.staggerModuleCards();
+            }
+
+            animateParticles() {
+                const particles = document.querySelectorAll('.particle');
+                particles.forEach((particle, index) => {
+                    const randomDelay = Math.random() * 2000;
+                    const randomDuration = 4000 + Math.random() * 4000;
+
+                    setTimeout(() => {
+                        particle.style.animation = `float ${randomDuration}ms ease-in-out infinite`;
+                    }, randomDelay);
+                });
+            }
+
+            staggerModuleCards() {
+                const cards = document.querySelectorAll('.module-card');
+                cards.forEach((card, index) => {
+                    card.style.animationDelay = `${index * 0.1}s`;
+                });
+            }
+        }
+
+        // Initialize the pricing calculator
+        const calculator = new PricingCalculator();
+
+        // Functions for the Payment Confirmation Modal
+        function showPaymentModal() {
+            const modalOverlay = document.getElementById('paymentModalOverlay');
+            const modalSummary = document.getElementById('modalSummary');
+
+            // Clear previous summary
+            modalSummary.innerHTML = '';
+
+            if (calculator.selectedModules.size === 0) {
+                alert("Please select at least one module to proceed with payment.");
+                return;
+            }
+
+            // Populate selected modules in the modal summary
+            calculator.currentModuleDetails.forEach(module => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('modal-summary-item');
+                itemDiv.innerHTML = `
+                    <span>${module.name}</span>
+                    <span>$${module.price}</span>
+                `;
+                modalSummary.appendChild(itemDiv);
+            });
+
+            // Add total price to summary
+            const totalDiv = document.createElement('div');
+            totalDiv.classList.add('modal-summary-total');
+            totalDiv.innerHTML = `Total: $${calculator.currentTotalPrice}`;
+            modalSummary.appendChild(totalDiv);
+
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+        }
+
+        function hidePaymentModal() {
+            const modalOverlay = document.getElementById('paymentModalOverlay');
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+       function confirmPayment() {
+    const selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+    hidePaymentModal(); // Close the modal
+
+    // Simulate sending payment request - In a real app, this would be an API call
+    console.log("Simulating payment confirmation for:");
+    console.log("Selected Modules:", Array.from(calculator.selectedModules));
+    console.log("Total Price:", calculator.currentTotalPrice);
+    console.log("Payment Method:", selectedPaymentMethod);
+
+    // Show the "Thank You" message
+    document.getElementById('thankYouMessage').style.display = 'block';
+
+    // Optional: Scroll to the thank you message
+    document.getElementById('thankYouMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Reset selected modules and hide thank you message after 30 seconds
+    setTimeout(() => {
+        calculator.selectedModules.forEach(module => {
+            const card = document.querySelector(`[data-module="${module}"]`);
+            card.classList.remove('selected');
+        });
+        calculator.selectedModules.clear();
+        calculator.updatePricing(); // Reset total to $0
+        document.getElementById('thankYouMessage').style.display = 'none'; // Hide the thank you message
+    }, 30000); // Hide after 30 seconds
+}
+
+        // Advanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.module-card, .total-summary, .thank-you-message');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(50px)';
+                observer.observe(el);
+            });
+        });
+
+        // Mouse parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+
+            document.querySelectorAll('.particle').forEach((particle, index) => {
+                const speed = (index + 1) * 0.5;
+                const x = (mouseX - 0.5) * speed * 50;
+                const y = (mouseY - 0.5) * speed * 50;
+
+                particle.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Pathways & Industry Integrations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        ::-webkit-scrollbar{
+            display: none;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .containerCareers {
+            max-width: 1700px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #4a6bff, #ff6b6b);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 1rem auto 0;
+            color: #6c757d;
+        }
+
+        .career-paths {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .path-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 6px solid #4a6bff;
+        }
+
+        .path-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .path-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .path-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+        }
+
+        .card-points {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            padding: 0 1rem;
+        }
+
+        .card-points li {
+            margin-bottom: 0.5rem;
+            color: #6c757d;
+            font-size: 0.99rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .card-points li::before {
+            content: "•";
+            color: #4a6bff;
+            position: absolute;
+            left: 0;
+        }
+
+        .learn-more-btn {
+            background: #4a6bff;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .learn-more-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .path-card { border-top-color: #0732f0; }
+        .path-card.tech .learn-more-btn { background: #4a6bff; }
+        .path-card.data .learn-more-btn { background: #9c4dff; }
+        .path-card.business .learn-more-btn { background: #ff6b6b; }
+        .path-card.health .learn-more-btn { background: #4dffb5; }
+        .path-card.creative .learn-more-btn { background: #ffb84d; }
+        .path-card.cyber .learn-more-btn { background: #6b4dff; }
+        .path-card.marketing .learn-more-btn { background: #ff4ac2; }
+        .path-card.ai .learn-more-btn { background: #6b4aff; }
+
+        /* Partners Section */
+        .partners {
+            background-color: #f8f9fa;
+            padding: 0.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .partner-track {
+            display: flex;
+            animation: scroll 7s linear infinite;
+            min-width: 100%;
+        }
+
+        .partner-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            perspective: 1000px;
+            flex: 0 0 250px;
+            margin: 0 1rem;
+        }
+
+        .partner-circle {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin-bottom: 1.5rem;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .partner-logo-container {
+            width: 140px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .partner-logo {
+            max-width: 480px;
+            max-height: 100%;
+            object-fit: contain;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            padding: 10px;
+        }
+
+        .partner-card:hover .partner-logo {
+            transform: scale(1);
+            opacity: 1;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .partner-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            text-align: center;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .partner-name::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #4a6bff;
+            transition: width 0.3s ease;
+        }
+
+        .partner-card:hover .partner-name {
+            color: #4a6bff;
+        }
+
+        .partner-card:hover .partner-name::after {
+            width: 40px;
+        }
+
+        .partner-industry {
+            color: #6c757d;
+            font-size: 0.8rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .partner-card:hover .partner-industry {
+            color: #ff6b6b;
+            transform: translateY(2px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1.15); }
+            50% { transform: translateY(-8px) scale(1.15); }
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @media (max-width: 768px) {
+            .career-paths {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            .partner-card {
+                flex: 0 0 180px;
+            }
+            .partner-circle {
+                width: 150px;
+                height: 150px;
+            }
+            .partner-logo {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .partner-card {
+                flex: 0 0 140px;
+            }
+            .partner-circle {
+                width: 120px;
+                height: 120px;
+            }
+            .partner-logo {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="containerCareers" id="careers">
+        <div class="section-title">
+            <h2>Career <span style="background: linear-gradient(135deg, #4a6bff, #ff6b6b); -webkit-background-clip: text; background-clip: text; color: transparent;">Pathways</span></h2>
+            <p>Structured progression routes in high-growth industries with real-world opportunities</p>
+        </div>
+        <div class="career-paths">
+            <!-- Technology Path -->
+            <div class="path-card tech">
+                <div class="card-image">
+                    <img src="computing.png" alt="Technology">
+                </div>
+                <h3>Technology & Engineering</h3>
+                <ul class="card-points">
+                    <li>Build cutting-edge software solutions</li>
+                    <li>Work with modern tech stacks</li>
+                </ul>
+                <button class="learn-more-btn" onclick="showPathDetail('tech')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <!-- Data Science Path -->
+            <div class="path-card data">
+                <div class="card-image">
+                    <img src="Data-analytics.png" alt="Data Science">
+                </div>
+                <h3>Data & Analytics</h3>
+                <ul class="card-points">
+                    <li>Work with Artificial Intelligence and machine learning</li>
+                    <li>Turn data into business insights</li>
+                </ul>
+                <button class="learn-more-btn" onclick="showPathDetail('data')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <!-- Business Path -->
+            <div class="path-card business">
+                <div class="card-image">
+                    <img src="Businees.png" alt="Business">
+                </div>
+                <h3>Business & Management</h3>
+                <ul class="card-points">
+                    <li>Develop strategic business solutions with unique ideas</li>
+                    <li>Lead teams and drive growth</li>
+                </ul>
+                <button class="learn-more-btn" onclick="showPathDetail('business')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <!-- Software Development Path -->
+            <div class="path-card health">
+                <div class="card-image">
+                    <img src="software-development.png" alt="Software Development">
+                </div>
+                <h3>Software Development</h3>
+                <ul class="card-points">
+                    <li>Work with modern development tools with Ideas</li>
+                    <li>Build scalable applications</li>
+                </ul>
+                <button class="learn-more-btn" onclick="showPathDetail('health')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <!-- Creative Path -->
+            <div class="path-card creative">
+                <div class="card-image">
+                    <img src="managed-it.png" alt="Creative">
+                </div>
+                <h3>Creative Industries</h3>
+                <ul class="card-points">
+                    <li>Develop multimedia content and designs</li>
+                    <li>Work with top creative tools</li>
+                </ul>
+                <button class="learn-more-btn" onclick="showPathDetail('creative')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <!-- Cybersecurity Path -->
+            <div class="path-card cyber">
+                <div class="card-image">
+                    <img src="cyber-security.png" alt="Cybersecurity">
+                </div>
+                <h3>Cybersecurity</h3>
+                <ul class="card-points">
+                    <li>Work with cutting-edge security tech</li>
+                    <li>Protect critical systems</li>
+                </ul>
+                <button class="learn-more-btn" onclick="showPathDetail('cyber')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <!-- Digital Marketing Path -->
+            <div class="path-card marketing">
+                <div class="card-image">
+                    <img src="Digital-marketing.png" alt="Digital Marketing">
+                </div>
+                <h3>Digital Marketing</h3>
+                <ul class="card-points">
+                    <li>Master SEO and social media strategies</li>
+                    <li>Create data marketing campaigns</li>
+                </ul>
+                <button class="learn-more-btn" onclick="showPathDetail('marketing')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+
+            <!-- AI Path -->
+            <div class="path-card ai">
+                <div class="card-image">
+                    <img src="ai.png" alt="Artificial Intelligence">
+                </div>
+                <h3>Artificial Intelligence</h3>
+                <ul class="card-points">
+                    <li>Work with machine learning models and tools</li>
+                    <li>Develop intelligent systems</li>
+                </ul>
+                <button class="learn-more-btn" onclick="showPathDetail('ai')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Industry <span style="background: linear-gradient(135deg, #4a6bff, #ff6b6b); -webkit-background-clip: text; background-clip: text; color: transparent;">Integrations</span></h2>
+                <p>Strategic collaborations with leading organizations across industries</p>
+            </div>
+            
+            <div class="partner-grid">
+                <div class="partner-track">
+                    <div class="partner-card">
+                        <div class="partner-circle">
+                            <img src="Microsoft.png" alt="Microsoft" class="partner-logo">
+                        </div>
+                        <h3 class="partner-name">Microsoft</h3>
+                        <p class="partner-industry">Technology</p>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-circle">
+                            <img src="Morgon.png" alt="Amazon" class="partner-logo">
+                        </div>
+                        <h3 class="partner-name">J.P.Morgan</h3>
+                        <p class="partner-industry">Cloud Computing</p>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-circle">
+                            <img src="IBM.png" alt="IBM" class="partner-logo">
+                        </div>
+                        <h3 class="partner-name">IBM</h3>
+                        <p class="partner-industry">Enterprise Tech</p>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-circle">
+                            <img src="Apple.png" alt="Apple" class="partner-logo">
+                        </div>
+                        <h3 class="partner-name">Apple</h3>
+                        <p class="partner-industry">Consumer Tech</p>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-circle">
+                            <img src="Google.png" alt="Google" class="partner-logo">
+                        </div>
+                        <h3 class="partner-name">Google</h3>
+                        <p class="partner-industry">Technology</p>
+                    </div>
+                    
+                    <!-- Duplicate the cards to create seamless looping -->
+                    <div class="partner-card">
+                        <div class="partner-circle">
+                            <img src="Microsoft.png" alt="Microsoft" class="partner-logo">
+                        </div>
+                        <h3 class="partner-name">Microsoft</h3>
+                        <p class="partner-industry">Technology</p>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-circle">
+                            <img src="Morgon.png" alt="Amazon" class="partner-logo">
+                        </div>
+                        <h3 class="partner-name">J.P.Morgan</h3>
+                        <p class="partner-industry">Cloud Computing</p>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-circle">
+                            <img src="IBM.png" alt="IBM" class="partner-logo">
+                        </div>
+                        <h3 class="partner-name">IBM</h3>
+                        <p class="partner-industry">Enterprise Tech</p>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-circle">
+                            <img src="Apple.png" alt="Apple" class="partner-logo">
+                        </div>
+                        <h3 class="partner-name">Apple</h3>
+                        <p class="partner-industry">Consumer Tech</p>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-circle">
+                            <img src="Google.png" alt="Google" class="partner-logo">
+                        </div>
+                        <h3 class="partner-name">Google</h3>
+                        <p class="partner-industry">Technology</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-circle">
+                            <img src="Infosys.png" alt="Google" class="partner-logo">
+                        </div>
+                        <h3 class="partner-name">Infoysis</h3>
+                        <p class="partner-industry">Web Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

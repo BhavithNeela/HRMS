@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Attendance Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+       ::-webkit-scrollbar{
+        display: none;
+       }
+        header {
+            background: linear-gradient(to right, #0f2027, #2684a3, #7bb9d3);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .header-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+        }
+
+        header p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .header-image {
+            flex-shrink: 0;
+            width: 500px;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 15px;
+            color: #2196F3;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #4CAF50;
+            border-radius: 2px;
+        }
+
+        .features {
+            padding: 20px 0;
+            background-color: #ffffff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            background-color: #e0f2f7;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+            border-top: 5px solid #4CAF50;
+        }
+
+        .features-grid .feature-item:nth-child(1) {
+            background-color: #e0f2f7;
+            border-top-color: #0072FF;
+        }
+        .features-grid .feature-item:nth-child(2) {
+            background-color: #e8f5e9;
+            border-top-color: #00BD6A;
+        }
+        .features-grid .feature-item:nth-child(3) {
+            background-color: #fff3e0;
+            border-top-color: #FF9966;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-item .icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            display: inline-block;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(45deg, #FF5733, #FFC300);
+            transition: background-image 0.3s ease;
+        }
+
+        .feature-item .icon.icon-smart-attendance {
+            background-image: linear-gradient(45deg, #00C6FF, #0072FF);
+        }
+        .feature-item .icon.icon-realtime-tracking {
+            background-image: linear-gradient(45deg, #13F393, #00BD6A);
+        }
+        .feature-item .icon.icon-biometric {
+            background-image: linear-gradient(45deg, #FF5E62, #FF9966);
+        }
+        .feature-item .icon.icon-reporting {
+            background-image: linear-gradient(45deg, #D444BF, #8C21A3);
+        }
+
+        .feature-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .faq {
+            padding: 20px 0;
+            background-color: #f9f9f9;
+        }
+
+        .faq .container {
+            background-color:rgb(223, 240, 245);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq .container::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(20px);
+        }
+
+        .faq .container::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #FFC107, #4CAF50);
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(20px);
+        }
+
+        .faq-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-item.active {
+            border-color: #4CAF50;
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.15);
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #2196F3;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-question .toggle-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+            color: #4CAF50;
+        }
+
+        .faq-item.active .faq-question .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        .signup {
+            padding: 30px 0;
+            background-color: #2196F3;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .signup::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -20%;
+            width: 100%;
+            height: 80%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: scale(1.5);
+            pointer-events: none;
+        }
+
+        .signup h2 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .signup-form-wrapper {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            margin: 40px auto 0;
+            color: #333;
+            text-align: left;
+        }
+
+        .signup-form-wrapper h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        .signup-form-wrapper p.trial-info {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
+
+        .form-group .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 75%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #666;
+        }
+
+        .form-group .phone-input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group .phone-input-group span {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            color: #666;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .checkbox-group a {
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signup-form-wrapper button {
+            width: 30%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .signup-form-wrapper button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .social-signup {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .social-signup p {
+            margin-bottom: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #f9f9f9;
+            color: #333;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icons .google:hover { background-color: #DB4437; color: white; }
+        .social-icons .linkedin:hover { background-color: #0077B5; color: white; }
+        .social-icons .microsoft:hover { background-color: #0078D4; color: white; }
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header p {
+                font-size: 1.1em;
+            }
+
+            .header-image {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 0;
+            }
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            header p {
+                font-size: 1em;
+                padding: 0 15px;
+            }
+
+            .section-title {
+                font-size: 2em;
+                margin-bottom: 40px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .dashboard-mockup, .dashboard-text {
+                min-width: unset;
+                width: 100%;
+                max-width: unset;
+            }
+
+            .faq .container {
+                padding: 30px 20px;
+            }
+
+            .signup-form-wrapper {
+                margin: 30px 15px;
+                padding: 30px 20px;
+            }
+
+            .social-icons a {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="header-text">
+                <h1>Elevate Your Workforce with Our Attendance Management System</h1>
+                <p>Streamline your operations, ensure accuracy, and empower your employees with real-time tracking, intelligent reporting, and seamless integrations.</p>
+                <a href="#signup" class="btn">Start Your Free Trial</a>
+            </div>
+            <div class="header-image">
+                <img src="attendance_management-copy.jpg" alt="Attendance Management Illustration">
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Key Features Driving Efficiency</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt icon icon-smart-attendance"></i>
+                    <h3>Smart Employee Attendance</h3>
+                    <p>Track attendance from anywhere using web or mobile apps with advanced location tracking, reminders, and instant notifications.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-map-marked-alt icon icon-realtime-tracking"></i>
+                    <h3>Live Real-time Tracking</h3>
+                    <p>Gain immediate insights into who's working from home or onsite with a dynamic live dashboard and real-time updates.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-fingerprint icon icon-biometric"></i>
+                    <h3>Biometric & Facial Recognition</h3>
+                    <p>Enhance security and ease of access by integrating with various biometric devices and facial recognition technology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is an attendance management system?
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>An attendance management system is a software solution designed to track and manage employee attendance efficiently. It automates the process of recording work hours, breaks, leaves, and holidays, replacing manual methods like spreadsheets or paper timesheets.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How does an attendance system benefit my business?
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It helps in accurately calculating payroll, improving punctuality, reducing administrative burden, ensuring compliance with labor laws, and providing valuable insights into workforce productivity through detailed reports. It also minimizes errors and time theft.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can employees clock in from their mobile devices?
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our advanced attendance system supports mobile clock-in/out through dedicated mobile applications. This feature often includes GPS tracking and geo-fencing to ensure employees are at designated work locations when clocking in.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is the data secure?
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We prioritize data security with features like IP address lock, encryption, secure cloud storage, and regular backups. Access is restricted based on user roles, and data integrity is maintained to prevent tampering.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I integrate this system with my existing payroll software?
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our system is designed for seamless integration with popular payroll, HR, and ERP software solutions. This allows for automated data transfer, reducing manual entry and potential errors in payroll processing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="signup" class="signup">
+        <div class="container">
+            <h2>Ready to Transform Your Attendance Management?</h2>
+            <div class="signup-form-wrapper">
+                <h3>Sign Up for a Free Trial</h3>
+                <p class="trial-info">30-day free trial. No credit card required. Cancel anytime.</p>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Work Email *</label>
+                        <input type="email" id="email" name="email" placeholder="name@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" name="password" placeholder="Create a strong password" required>
+                        <span class="password-toggle" onclick="togglePasswordVisibility()"><i class="fas fa-eye"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <div class="phone-input-group">
+                            <span>+91</span>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+                    </div>
+                    <button type="submit">FREE SIGN UP</button>
+                </form>
+                <div class="social-signup">
+                    <p>or sign up using</p>
+                    <div class="social-icons">
+                        <a href="#" class="google" aria-label="Sign up with Google"><i class="fab fa-google"></i></a>
+                        <a href="#" class="linkedin" aria-label="Sign up with LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="microsoft" aria-label="Sign up with Microsoft"><i class="fab fa-windows"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function togglePasswordVisibility() {
+            const passwordField = document.getElementById('password');
+            const toggleIcon = passwordField.nextElementSibling.querySelector('i');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const faqItem = item.closest('.faq-item');
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

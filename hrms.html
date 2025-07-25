@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HRMS</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..."> <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="hrms.css">
+</head>
+<body style="background-color: #e1f2fa;">
+  <!-- Header with Navigation -->
+  <header class="headerMain flex justify-between items-center w-full px-4">
+    <div class="text-4xl font-bold text-blue-700">HRMS</div>
+    <nav class="flex space-x-4 items-center">
+      <a href="#home" class="nav-link" onclick="showSection('home')">Home</a>
+      <div class="dropdown">
+        <a href="#services" class="dropbtn nav-link">Services</a>
+        <div class="dropdown-content">
+          <a href="#" onclick="loadPage('Leave.html')">Leave</a>
+          <a href="#" onclick="loadPage('appraisal.html')">Appraisal</a>
+          <a href="#" onclick="loadPage('onboarding.html')">Onboarding</a>
+          <a href="#" onclick="loadPage('offboarding.html')">Offboarding</a>
+          <a href="#" onclick="loadPage('payslip.html')">Payslip</a>
+          <a href="#" onclick="loadPage('career-progression.html')">Career Progression</a>
+          <a href="#" onclick="loadPage('assets.html')">Assets</a>
+          <a href="#" onclick="loadPage('bonus.html')">Bonus</a>
+          <a href="#" onclick="loadPage('attendance.html')">Attendance</a>
+        </div>
+      </div>
+      <!-- onclick="loadPage('testimonials.html')" -->
+      <a href="#testimonials" class="dropbtn nav-link" >Testimonials</a>
+      <a href="#about"  class="dropbtn nav-link" >About</a>
+      <a href="#careers"  class="dropbtn nav-link" >Careers</a>
+      <a href="#"  onclick="loadPage('pricing.html')" class="dropbtn nav-link">Pricing</a>
+      <a href="#contact"  class="dropbtn nav-link" >Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Main Content for Static Sections -->
+  <main id="main-content" class="main-content active">
+    <!-- Home Section -->
+    <!-- Home Section -->
+ <section id="home" class="heroMain">
+  <div class="bodyMAin">
+    <div id="particles-js"></div>
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-spinner"></div>
+    </div>
+    <div class="hero-Maincontainer">
+      <div class="hero-Maincontent">
+        <h1>Transform Your <span class="hero-highlight">HRMS Operations </span> with AI-Powered Solutions</h1>
+        <p>Streamline employee management, automate workflows, and boost productivity with our comprehensive HRMS platform designed for modern businesses.</p>
+        <div class="hero-buttons">
+          <a href="#demo" class="btn-primary">Start Free Trial</a>
+          <a href="#features" class="btn-secondary">Explore Features</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="image-carousel">
+          <!-- Carousel images will be injected here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- Services Section -->
+    <section id="services" class="section" style="margin-top: 30px;">
+  <h2 class="text-4xl font-bold text-blue-700 mb-6" style="text-align: center;">Services</h2>
+  <div id="service-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="service-card">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Leave</h3>
+      <img src="https://uffizio.com/wp-content/uploads/2022/06/leave-management.jpg" class="service-image" alt="Leave Management">
+      <p class="text-gray-600">Manage employee leaves efficiently.</p>
+      <a href="#" class="explore-btn mt-4 block text-center" onclick="loadPage('Leave.html')">Explore</a>
+    </div>
+    <div class="service-card">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Appraisal</h3>
+      <img src="appaisals.jpg" class="service-image" alt="Appraisal Management">
+      <p class="text-gray-600">Streamline performance reviews.</p>
+      <a href="#" class="explore-btn mt-4 block text-center" onclick="loadPage('appraisal.html')">Explore</a>
+    </div>
+    <div class="service-card">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Bonus</h3>
+      <img src="bonus.png" class="service-image" alt="Bonus Management">
+      <p class="text-gray-600">Streamline performance reviews.</p>
+      <a href="#" class="explore-btn mt-4 block text-center" onclick="loadPage('bonus.html')">Explore</a>
+    </div>
+    <div class="service-card">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Onboarding</h3>
+      <img src="onboarding.png" class="service-image" alt="Onboarding Process">
+      <p class="text-gray-600">Simplify new hire onboarding.</p>
+      <a href="#" class="explore-btn mt-4 block text-center" onclick="loadPage('onboarding.html')">Explore</a>
+    </div>
+    <div class="service-card">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Offboarding</h3>
+      <img src="offboarding.png" class="service-image" alt="Offboarding Process">
+      <p class="text-gray-600">Handle employee exits with ease.</p>
+      <a href="#" class="explore-btn mt-4 block text-center" onclick="loadPage('offboarding.html')">Explore</a>
+    </div>
+    <div class="service-card">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Payslip</h3>
+      <img src="Payroll.png" class="service-image" alt="Payslip Generation">
+      <p class="text-gray-600">Generate payslips effortlessly.</p>
+      <a href="#" class="explore-btn mt-4 block text-center" onclick="loadPage('payslip.html')">Explore</a>
+    </div>
+    <div class="service-card">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Career Progression</h3>
+      <img src="career.png" class="service-image" alt="Career Progression Tracking">
+      <p class="text-gray-600">Track employee career growth.</p>
+      <a href="#" class="explore-btn mt-4 block text-center" onclick="loadPage('career-progression.html')">Explore</a>
+    </div>
+    <div class="service-card">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Assets</h3>
+      <img src="image2.jpg" class="service-image" alt="Asset Management">
+      <p class="text-gray-600">Manage company assets.</p>
+      <a href="#" class="explore-btn mt-4 block text-center" onclick="loadPage('assets.html')">Explore</a>
+    </div>
+    <div class="service-card">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Attendance</h3>
+      <img src="attendance_management-copy.jpg" class="service-image" alt="Attendance Tracking">
+      <p class="text-gray-600">Monitor attendance records.</p>
+      <a href="#" class="explore-btn mt-4 block text-center" onclick="loadPage('attendance.html')">Explore</a>
+    </div>
+  </div>
+</section>
+    <!-------------------- Testimonials Section -->
+     <section id="testimonials" class="section">
+       <div class="testimonial-container">
+    <h2 class="testimonial-title">What Our Clients Say</h2>
+    <div class="testimonial-list" id="testimonialList">
+      <!-- Testimonials will be injected here -->
+    </div>
+  </div>
+
+     </section>
+    <!-- About Section -->
+               <h2 class="text-4xl font-bold text-blue-700 mb-6" style="text-align: center;">About Us</h2>
+
+      <section class="about-section" id="about">
+
+    <div class="about-image">
+      <img src="https://thumbs.dreamstime.com/b/human-resources-background-concept-design-85402258.jpg" alt="HRMS Overview">
+    </div>
+    <div class="about-content">
+      <h2>What is HRMS?</h2>
+      <p>HRMS (Human Resource Management System) is a digital solution to streamline and automate HR operations. Our system ensures easy employee management, attendance tracking, payroll processing, onboarding, and more. The HR function is moving towards organizational efficiency and predictive analytics. Moreover, the function is moving away from tactical to strategic HR. The relegation of Transactional HR to chatbots and automation is indeed on.</p>
+      
+    </div>
+  </section>
+ <section class="why-partner">
+    <h2 class="partner-title">Why Partner with HRMS?</h2>
+    <div class="partner-gridAbout">
+      <div class="partner-card">
+        <i class="fa-solid fa-trophy"></i>
+        <h3>Attract New Customers</h3>
+        <p>Leverage HRMS’s trusted solutions to expand your client base.</p>
+      </div>
+      <div class="partner-card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Increase Value Proposition</h3>
+        <p>Offer cutting-edge HRMS and payroll services to enhance your current offerings.</p>
+      </div>
+      <div class="partner-card">
+        <i class="fa-solid fa-chart-bar"></i>
+        <h3>Revenue Growth</h3>
+        <p>Benefit from competitive commissions or profit margins on reselling.</p>
+      </div>
+      <div class="partner-card">
+        <i class="fa-solid fa-building"></i>
+        <h3>Collaborate with a Trusted Brand</h3>
+        <p>Work alongside a company trusted by over 1,000 clients.</p>
+      </div>
+      <div class="partner-card">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <h3>Comprehensive Solutions</h3>
+        <p>Access a combination of HR software, outsourcing, and compliance services.</p>
+      </div>
+      <div class="partner-card">
+        <i class="fa-solid fa-handshake"></i>
+        <h3>Dedicated Support</h3>
+        <p>Ensure client satisfaction with personalized support from our expert team.</p>
+      </div>
+    </div>
+  </section>
+
+ <section class="hrms-values">
+    <h2 class="hrms-title">What we do are founded on these <span class="highlight">HRMS.</span></h2>
+    <div class="hrms-cards">
+      <div class="hrms-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Customers First" />
+        <h3>Customers-First</h3>
+        <p>We believe in delivering first-class implementation service for our customers as well as personalised, fast and approachable support.</p>
+      </div>
+      <div class="hrms-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055644.png" alt="User Experience" />
+        <h3>User Experience</h3>
+        <p>Every function and feature is designed carefully with ease-of-use in mind. Our systems aim to provide the best experience one can have.</p>
+      </div>
+      <div class="hrms-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/565/565547.png" alt="Safety & Security" />
+        <h3>Safety & Security</h3>
+        <p>We set ourselves apart by making security our top priority. Our cyber security team is certified with highest level security standards.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <h2>Core Features</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <i class="fas fa-users"></i>
+        <h3>Employee Directory</h3>
+        <p>Quick access to employee profiles and records.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-calendar-check"></i>
+        <h3>Attendance Management</h3>
+        <p>Track work hours, leaves, and holidays efficiently.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-file-invoice-dollar"></i>
+        <h3>Payroll Automation</h3>
+        <p>Generate accurate payslips and manage deductions.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-user-plus"></i>
+        <h3>Onboarding</h3>
+        <p>Simplify the hiring and induction process.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="containerAbout">
+    <h2>Minimal Statistics Cards</h2>
+    <div class="stats-row">
+      <div class="stat-card">
+        <i class="fas fa-users icon"></i>
+        <div class="stat-info">
+          <span class="stat-number">500</span>
+          <span class="stat-label">Employees Managed</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-sitemap icon"></i>
+        <div class="stat-info">
+          <span class="stat-number">20</span>
+          <span class="stat-label">Departments</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-briefcase icon"></i>
+        <div class="stat-info">
+          <span class="stat-number">50</span>
+          <span class="stat-label">Clients</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values-container">
+    <h2 class="values-header">Our Values</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+        <div>
+          <h3 class="value-title">Innovation</h3>
+          <div class="value-desc">We embrace creativity and forward-thinking to continuously develop solutions that simplify and enhance the HR experience.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-smile"></i></div>
+        <div>
+          <h3 class="value-title">Customer Success</h3>
+          <div class="value-desc">Our customers’ success is our priority, and we are committed to delivering exceptional service that drives real results and lasting partnerships.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-check-circle"></i></div>
+        <div>
+          <h3 class="value-title">Reliability</h3>
+          <div class="value-desc">Our clients count on us, and we strive to provide dependable solutions and responsive support that they can trust.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-handshake"></i></div>
+        <div>
+          <h3 class="value-title">Integrity</h3>
+          <div class="value-desc">We uphold the highest standards of honesty and transparency in every interaction, building trust with our clients and partners.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+   <!-- Careers Section -->
+
+   <section id="careers" class="section">
+
+    <section class="containerCareers" id="careers">
+        <div class="section-title">
+            <h2>Career <span style="background: linear-gradient(135deg, #4a6bff, #ff6b6b); -webkit-background-clip: text; background-clip: text; color: transparent;">Pathways</span></h2>
+            <p>Structured progression routes in high-growth industries with real-world opportunities</p>
+        </div>
+        <div class="career-paths">
+            <!-- Technology Path -->
+            <div class="path-card tech">
+                <div class="card-image">
+                    <img src="computing.png" alt="Technology">
+                </div>
+                <h3>Technology & Engineering</h3>
+                <ul class="card-points">
+                    <li>Build cutting-edge software solutions</li>
+                    <li>Work with modern tech stacks</li>
+                </ul>
+                <button class="learn-more-btnCareer" onclick="showPathDetail('tech')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <!-- Data Science Path -->
+            <div class="path-card data">
+                <div class="card-image">
+                    <img src="Data-analytics.png" alt="Data Science">
+                </div>
+                <h3>Data & Analytics</h3>
+                <ul class="card-points">
+                    <li>Work with Artificial Intelligence and machine learning</li>
+                    <li>Turn data into business insights</li>
+                </ul>
+                <button class="learn-more-btnCareer" onclick="showPathDetail('data')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <!-- Business Path -->
+            <!-- <div class="path-card business">
+                <div class="card-image">
+                    <img src="Businees.png" alt="Business">
+                </div>
+                <h3>Business & Management</h3>
+                <ul class="card-points">
+                    <li>Develop strategic business solutions with unique ideas</li>
+                    <li>Lead teams and drive growth</li>
+                </ul>
+                <button class="learn-more-btn" onclick="showPathDetail('business')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div> -->
+            <!-- Software Development Path -->
+            <div class="path-card health">
+                <div class="card-image">
+                    <img src="software-development.png" alt="Software Development">
+                </div>
+                <h3>Software Development</h3>
+                <ul class="card-points">
+                    <li>Work with modern development tools with Ideas</li>
+                    <li>Build scalable applications</li>
+                </ul>
+                <button class="learn-more-btnCareer" onclick="showPathDetail('health')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <!-- Creative Path -->
+            <div class="path-card creative">
+                <div class="card-image">
+                    <img src="managed-it.png" alt="Creative">
+                </div>
+                <h3>Creative Industries</h3>
+                <ul class="card-points">
+                    <li>Develop multimedia content and designs</li>
+                    <li>Work with top creative tools</li>
+                </ul>
+                <button class="learn-more-btnCareer" onclick="showPathDetail('creative')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <!-- Cybersecurity Path -->
+            <div class="path-card cyber">
+                <div class="card-image">
+                    <img src="cyber-security.png" alt="Cybersecurity">
+                </div>
+                <h3>Cybersecurity</h3>
+                <ul class="card-points">
+                    <li>Work with cutting-edge security tech</li>
+                    <li>Protect critical systems</li>
+                </ul>
+                <button class="learn-more-btnCareer" onclick="showPathDetail('cyber')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <!-- Digital Marketing Path -->
+            <!-- <div class="path-card marketing">
+                <div class="card-image">
+                    <img src="Digital-marketing.png" alt="Digital Marketing">
+                </div>
+                <h3>Digital Marketing</h3>
+                <ul class="card-points">
+                    <li>Master SEO and social media strategies</li>
+                    <li>Create data marketing campaigns</li>
+                </ul>
+                <button class="learn-more-btn" onclick="showPathDetail('marketing')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div> -->
+
+            <!-- AI Path -->
+            <div class="path-card ai">
+                <div class="card-image">
+                    <img src="ai.png" alt="Artificial Intelligence">
+                </div>
+                <h3>Artificial Intelligence</h3>
+                <ul class="card-points">
+                    <li>Work with machine learning models and tools</li>
+                    <li>Develop intelligent systems</li>
+                </ul>
+                <button class="learn-more-btnCareer" onclick="showPathDetail('ai')">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+    <!-- Partners Section -->
+   <section class="partnersCareer" id="partners">
+    <div class="containerCareers">
+        <div class="section-title">
+            <h2>Industry <span style="background: linear-gradient(135deg, #4a6bff, #ff6b6b); -webkit-background-clip: text; background-clip: text; color: transparent;">Integrations</span></h2>
+            <p>Strategic collaborations with leading organizations across industries</p>
+        </div>
+        
+        <div class="partner-gridCareer">
+            <div class="partner-track">
+                <!-- Original Companies -->
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Microsoft.png" alt="Microsoft" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Microsoft</h3>
+                    <p class="partner-industry">Technology</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Morgon.png" alt="J.P.Morgan" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">J.P.Morgan</h3>
+                    <p class="partner-industry">Finance</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="IBM.png" alt="IBM" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">IBM</h3>
+                    <p class="partner-industry">Enterprise Tech</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Apple.png" alt="Apple" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Apple</h3>
+                    <p class="partner-industry">Consumer Tech</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Google.png" alt="Google" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Google</h3>
+                    <p class="partner-industry">Technology</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Infosys.png" alt="Infosys" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Infosys</h3>
+                    <p class="partner-industry">Web Development</p>
+                </div>
+                
+                <!-- Newly Added Companies -->
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Tesla.png" alt="Tesla" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Tesla</h3>
+                    <p class="partner-industry">Automotive</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Netflix.png" alt="Netflix" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Netflix</h3>
+                    <p class="partner-industry">Entertainment</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Samsung.png" alt="Samsung" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Samsung</h3>
+                    <p class="partner-industry">Electronics</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Adobe.png" alt="Adobe" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Adobe</h3>
+                    <p class="partner-industry">Software</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Intel.png" alt="Intel" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Intel</h3>
+                    <p class="partner-industry">Semiconductors</p>
+                </div>
+                
+                <!-- Duplicates for seamless looping -->
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Microsoft.png" alt="Microsoft" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Microsoft</h3>
+                    <p class="partner-industry">Technology</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Morgon.png" alt="J.P.Morgan" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">J.P.Morgan</h3>
+                    <p class="partner-industry">Finance</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="IBM.png" alt="IBM" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">IBM</h3>
+                    <p class="partner-industry">Enterprise Tech</p>
+                </div>
+
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Apple.png" alt="Apple" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Apple</h3>
+                    <p class="partner-industry">Consumer Tech</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Google.png" alt="Google" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Google</h3>
+                    <p class="partner-industry">Technology</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Infosys.png" alt="Infosys" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Infosys</h3>
+                    <p class="partner-industry">Web Development</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Tesla.png" alt="Tesla" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Tesla</h3>
+                    <p class="partner-industry">Automotive</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Netflix.png" alt="Netflix" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Netflix</h3>
+                    <p class="partner-industry">Entertainment</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Samsung.png" alt="Samsung" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Samsung</h3>
+                    <p class="partner-industry">Electronics</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Adobe.png" alt="Adobe" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Adobe</h3>
+                    <p class="partner-industry">Software</p>
+                </div>
+                
+                <div class="partner-cardCareer">
+                    <div class="partner-circle">
+                        <img src="Intel.png" alt="Intel" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Intel</h3>
+                    <p class="partner-industry">Semiconductors</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</section>
+<!------------- ContactUs--------------------->
+<section id="contact" class="section" style="margin-left: 60px;margin-top: 30px;">
+  <div class="text-center mb-10">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4 heading-container">
+            Contact Us
+            <span class="heading-underline"></span>
+        </h1>
+        <p class="text-gray-600 max-w-md mx-auto">We'd love to hear from you! Send us a message and we'll respond promptly.</p>
+    </div>
+
+    <div class="flex flex-col lg:flex-row gap-8 w-full max-w-6xl">
+        <!-- Contact Information Section -->
+        <div class="contact-card flex-1 flex flex-col items-center text-center lg:text-left lg:items-start">
+            <!-- New wrapper for icon and heading -->
+            <div class="card-heading-group">
+                <div class="icon-circle">
+                    <i class="fas fa-comment-dots text-xl"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Contact Information</h2>
+            </div>
+
+            <div class="space-y-6 w-full px-4">
+                <!-- Location -->
+                <div class="flex items-center gap-4">
+                    <i class="fas fa-map-marker-alt text-purple-600 text-xl"></i>
+                    <div>
+                        <h3 class="font-medium text-gray-700">Our Location</h3>
+                        <p class="text-gray-500">123 Tech Park, San Francisco, CA 94107</p>
+                    </div>
+                </div>
+                <!-- Email Us -->
+                <div class="flex items-center gap-4">
+                    <i class="fas fa-envelope text-purple-600 text-xl"></i>
+                    <div>
+                        <h3 class="font-medium text-gray-700">Email Us</h3>
+                        <p class="text-gray-500">info@astrolitetech.com</p>
+                        <p class="text-gray-500">support@astrolitetech.com</p>
+                    </div>
+                </div>
+                <!-- Call Us -->
+                <div class="flex items-center gap-4">
+                    <i class="fas fa-phone-alt text-purple-600 text-xl"></i>
+                    <div>
+                        <h3 class="font-medium text-gray-700">Call Us</h3>
+                        <p class="text-gray-500">Sales: (555) 122-4567</p>
+                        <p class="text-gray-500">Support: (555) 765-4321</p>
+                    </div>
+                </div>
+                <!-- Working Hours -->
+                <div class="flex items-center gap-4">
+                    <i class="fas fa-clock text-purple-600 text-xl"></i>
+                    <div>
+                        <h3 class="font-medium text-gray-700">Working Hours</h3>
+                        <p class="text-gray-500">Monday - Friday: 9am - 6pm</p>
+                        <p class="text-gray-500">Saturday: 10am - 4pm</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="social-media-section">
+                <h3 class="font-medium text-gray-700 mb-4">Follow Us</h3>
+                <div class="flex justify-center gap-4">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Send Us a Message Section -->
+        <div class="contact-card flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <!-- New wrapper for icon and heading -->
+            <div class="card-heading-group">
+                <div class="icon-circle">
+                    <i class="fas fa-paper-plane text-xl"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Send Us a Message</h2>
+            </div>
+
+            <form id="contactForm" class="w-full space-y-6 px-4">
+                <div>
+                    <label for="fullName" class="sr-only">Full Name</label>
+                    <div class="relative">
+                        <input type="text" id="fullName" name="fullName" placeholder="Full Name" class="input-field pr-10" required>
+                        <i class="fas fa-user absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <label for="emailAddress" class="sr-only">Email Address</label>
+                    <div class="relative">
+                        <input type="email" id="emailAddress" name="emailAddress" placeholder="Email Address" class="input-field pr-10" required>
+                        <i class="fas fa-envelope absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <label for="subject" class="sr-only">Subject</label>
+                    <div class="relative">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" class="input-field pr-10" required>
+                        <i class="fas fa-tag absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <label for="yourMessage" class="sr-only">Your Message</label>
+                    <div class="relative">
+                        <textarea id="yourMessage" name="yourMessage" rows="5" placeholder="Your Message" class="input-field pr-10 resize-none" required></textarea>
+                        <i class="fas fa-comment-alt absolute right-3 top-3 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button w-full flex items-center justify-center gap-2">
+                    Send Message <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+
+            <!-- Message Box for form submission feedback -->
+            <div id="messageBox" class="hidden mt-4 p-4 rounded-lg text-sm" role="alert"></div>
+        </div>
+    </div>
+</section>
+
+    
+    
+  </main>
+
+  <!-- Iframe Content for Other Pages -->
+  <div id="iframe-content" class="main-content" style="display: none;">
+    <section id="dynamic-section" class="section">
+      <div class="iframe-wrapper">
+        <iframe id="testimonialsFrame" src="testimonials.html" width="100%" height="calc(100vh - 80px)" frameborder="0" style="border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"></iframe>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+<footer id="footer" class="footer">
+    <div class="flex justify-between items-start w-full max-w-7xl mx-auto px-4 py-6">
+      <div class="text-white">
+        <h3 style="color: blue;"><b>HRMS</b></h3>
+        <p class="text-sm">Your Tagline here</p>
+        <div class="mt-2">
+          <h4 class="" style="color: blue;">About Us</h4>
+          <p class="text-sm">We want to help bring talented<br> students and unique startups together.</p>
+          <p class="text-sm">Contact Us</p>
+          <p class="text-sm">+91 999 999 999</p>
+          <p class="text-sm">✉ <a href="mailto:youremail.com" class="text-orange-400">youremail.com</a></p>
+        </div>
+      </div>
+      <div class="flex space-x-12">
+        <nav class="text-white">
+          <h4 class="" style="color: blue;">Information</h4>
+          <ul class="space-y-2 text-sm mt-2">
+            <li><a href="#about" class="hover:text-orange-400">About Us</a></li>
+            <li><a href="#more-search" class="hover:text-orange-400">More Search</a></li>
+            <li><a href="#blog" class="hover:text-orange-400">Blog</a></li>
+            <li><a href="#testimonials" class="hover:text-orange-400">Testimonials</a></li>
+            <li><a href="#events" class="hover:text-orange-400">Events</a></li>
+          </ul>
+        </nav>
+        <nav class="text-white">
+          <h4 class="text-orange-400" style="color: blue;">Helpful Links</h4>
+          <ul class="space-y-2 text-sm mt-2">
+            <li><a href="#services" class="hover:text-orange-400">Services</a></li>
+            <li><a href="#supports" class="hover:text-orange-400">Supports</a></li>
+            <li><a href="#terms" class="hover:text-orange-400">Terms & Condition</a></li>
+            <li><a href="#privacy" class="hover:text-orange-400">Privacy Policy</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="text-white">
+        <h4 class="text-orange-400">Subscribe More Info</h4>
+        <form class="mt-2">
+          <input type="email" placeholder="Enter your Email" class="p-2 border rounded text-black w-full mb-2">
+          <button type="submit" class="bg-orange-400 text-white p-2 rounded w-full hover:bg-orange-500">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-7xl mx-auto px-4 py-4 border-t border-gray-700">
+      <div class="flex space-x-4">
+        <a href="https://facebook.com" target="_blank" class="text-orange-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank" class="text-orange-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="text-orange-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://instagram.com" target="_blank" class="text-orange-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p class="text-sm text-white">© 2025 © company Ltd. All Right Reserved</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Dynamic Content -->
+  <script>
+    function loadPage(pageUrl) {
+      const frame = document.getElementById("testimonialsFrame");
+      if (frame) {
+        frame.src = pageUrl;
+      }
+      // Hide main content
+      document.getElementById('main-content').classList.remove('active');
+      document.getElementById('main-content').style.display = 'none';
+
+      // Show iframe content
+      document.getElementById('iframe-content').classList.add('active');
+      document.getElementById('iframe-content').style.display = 'block';
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    function showSection(sectionId) {
+      // Hide iframe content
+      document.getElementById('iframe-content').classList.remove('active');
+      document.getElementById('iframe-content').style.display = 'none';
+      document.getElementById("testimonialsFrame").src = "testimonials.html"; // Reset iframe to Testimonials by default
+
+      // Show main content
+      document.getElementById('main-content').classList.add('active');
+      document.getElementById('main-content').style.display = 'block';
+
+      // Show the specific section within main content
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Set initial active section
+    window.addEventListener('load', () => showSection('home'));
+  </script>
+
+  <!-- Testimonials Script -->
+   <script>
+    const testimonials = [
+      {
+    id: 1,
+    name: "Jane Doe",
+    role: "Product Manager at Acme Corp",
+    image: "https://i.pravatar.cc/100?img=5",
+    rating: 5,
+    text: "This service was amazing! It helped our team boost productivity and meet tight deadlines effortlessly."
+  },
+  {
+    id: 2,
+    name: "John Smith",
+    role: "Developer at TechWave",
+    image: "https://i.pravatar.cc/100?img=12",
+    rating: 4,
+    text: "The support was outstanding and the product is intuitive and fast. Highly recommended!"
+  },
+  {
+    id: 3,
+    name: "Emily Johnson",
+    role: "Designer at Creative Studio",
+    image: "https://i.pravatar.cc/100?img=32",
+    rating: 5,
+    text: "Beautiful interface and a very smooth experience. This is a game changer for designers."
+  },
+  {
+    id: 4,
+    name: "Carlos Martinez",
+    role: "Marketing Lead at BrightIdeas",
+    image: "https://i.pravatar.cc/100?img=21",
+    rating: 5,
+    text: "A must-have tool for any marketing team. It made collaboration so much easier and more transparent."
+  },
+  {
+    id: 5,
+    name: "Linda Zhao",
+    role: "CEO at FutureNow",
+    image: "https://i.pravatar.cc/100?img=47",
+    rating: 5,
+    text: "We've seen measurable results in just weeks. The ROI speaks for itself — simply incredible."
+  },
+  {
+    id: 6,
+    name: "Mohamed Ali",
+    role: "Data Analyst at Insight360",
+    image: "https://i.pravatar.cc/100?img=33",
+    rating: 5,
+    text: "I love how data-driven and easy to use the platform is. The insights have been invaluable to our strategy."
+  },
+  {
+    id: 7,
+    name: "Sophia Lee",
+    role: "Freelance Developer",
+    image: "https://i.pravatar.cc/100?img=45",
+    rating: 5,
+    text: "It saved me hours of manual work every week. As a freelancer, that time is gold."
+  },
+  {
+    id: 8,
+    name: "Daniel Thompson",
+    role: "Founder of StartRight",
+    image: "https://i.pravatar.cc/100?img=14",
+    rating: 5,
+    text: "From onboarding to launch, the experience was seamless. One of the best investments we made."
+  }
+    ];
+
+    function renderStars(rating) {
+      const full = '★'.repeat(rating);
+      const empty = '☆'.repeat(5 - rating);
+      return full + empty;
+    }
+
+    const container = document.getElementById('testimonialList');
+
+    testimonials.forEach((testimonial) => {
+      const card = document.createElement('div');
+      card.className = 'testimonial-card';
+
+      card.innerHTML = `
+        <img src="${testimonial.image}" alt="${testimonial.name}" class="testimonial-image">
+       
+       
+        <h3 class="testimonial-name">${testimonial.name}</h3>
+        <p class="testimonial-role">${testimonial.role}</p>
+         <p class="testimonial-text">"${testimonial.text}"</p>
+         <div class="testimonial-stars">${renderStars(testimonial.rating)}</div>
+        
+      `;
+
+      container.appendChild(card);
+    });
+  </script>
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Particles.js configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#ffffff'
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations (kept for potential future use or other elements)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            }
+
+            updateCounter();
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-count'));
+                        animateCounter(counter, target);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Add click ripple effect to buttons
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+
+                this.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            .btn-primary, .btn-secondary {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.6);
+                transform: scale(0);
+                animation: ripple-animation 0.6s linear;
+                pointer-events: none;
+            }
+
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add parallax effect to hero section
+        // window.addEventListener('scroll', function() {
+        //     const scrolled = window.pageYOffset;
+        //     const parallax = document.querySelector('.hero-visual');
+        //     if (parallax) {
+        //         const speed = scrolled * 0.5;
+        //         parallax.style.transform = `translateY(${speed}px)`;
+        //     }
+        // });
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+
+            type();
+        }
+
+        // Initialize typing effect after page load
+        setTimeout(() => {
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                // To apply typing effect only to the static part and keep highlight styled
+                const highlightSpan = heroTitle.querySelector('.hero-highlight');
+                if (highlightSpan) {
+                    const originalText = heroTitle.textContent; // Get full text first
+                    heroTitle.innerHTML = originalText; // Reset to original for typing
+                    const staticPart = originalText.substring(0, originalText.indexOf('HRMS Operations'));
+                    const highlightPart = 'HRMS Operations'; // The part that will be highlighted
+                    const remainingPart = originalText.substring(originalText.indexOf('with AI-Powered Solutions'));
+
+                    // Reconstruct with span to retain highlight styling during typing effect
+                    let tempSpan = document.createElement('span');
+                    tempSpan.innerHTML = `${staticPart}<span class="hero-highlight">${highlightPart}</span>${remainingPart}`;
+                    heroTitle.innerHTML = ''; // Clear for typing effect
+                    let charIndex = 0;
+
+                    function typeChar() {
+                        if (charIndex < tempSpan.innerHTML.length) {
+                            // Find the position of the highlight span to avoid typing inside it
+                            const currentHTML = heroTitle.innerHTML;
+                            const preHighlightLength = staticPart.length;
+
+                            if (charIndex < preHighlightLength) {
+                                heroTitle.innerHTML += staticPart.charAt(charIndex);
+                            } else if (charIndex >= preHighlightLength && charIndex < (preHighlightLength + highlightPart.length)) {
+                                // Add highlight characters, but ensure the span structure is maintained
+                                if (!currentHTML.includes('<span class="hero-highlight">')) {
+                                    heroTitle.innerHTML += '<span class="hero-highlight">';
+                                }
+                                heroTitle.innerHTML += highlightPart.charAt(charIndex - preHighlightLength);
+                                if (charIndex === (preHighlightLength + highlightPart.length - 1)) {
+                                    heroTitle.innerHTML += '</span>';
+                                }
+                            } else {
+                                // Add remaining characters
+                                heroTitle.innerHTML += remainingPart.charAt(charIndex - (preHighlightLength + highlightPart.length));
+                            }
+                            charIndex++;
+                            setTimeout(typeChar, 50);
+                        }
+                    }
+                    typeChar();
+                } else {
+                    // Fallback for simple title without highlight
+                    const originalText = heroTitle.textContent;
+                    typeWriter(heroTitle, originalText, 50);
+                }
+            }
+        }, 2000);
+
+
+        // Image Carousel for Hero Visual
+        const images = [
+            'hrmsImage1.png', // Make sure this file is in your 'images' folder
+            'hrms(2).png',    // You need to place your actual images here.
+            'hrmsImage3.png',    // For example, download some HRMS-related images
+            'hrmsImage4.jpg'     // and put them in the 'images' folder.
+        ];
+        let currentImageIndex = 0;
+        const imageCarousel = document.querySelector('.image-carousel');
+        
+
+        function loadImageCarousel() {
+            imageCarousel.innerHTML = ''; // Clear existing content
+            images.forEach((src, index) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.classList.add('carousel-image');
+                if (index === 0) {
+                    img.classList.add('active');
+                }
+                imageCarousel.appendChild(img);
+            });
+        }
+
+        function changeImage() {
+            const allImages = imageCarousel.querySelectorAll('.carousel-image');
+            // Ensure there are images to cycle
+            if (allImages.length === 0) return;
+
+            allImages[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex + 1) % allImages.length; // Use allImages.length
+            allImages[currentImageIndex].classList.add('active');
+        }
+
+        window.addEventListener('load', () => {
+            loadImageCarousel();
+            setInterval(changeImage, 3000); // Change image every 3 seconds
+        });
+
+    </script>
+</body>
+</html>

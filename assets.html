@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Assets Management System</title>
+ <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+ <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #0f2027, #2684a3, #7bb9d3);
+  color: white;
+  min-height: 100vh;
+}
+
+
+.hero {
+   
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 5%;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 30px;
+ 
+}
+.mobile-preview {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  height: 100%;
+}
+.mobile-preview img {
+   
+  width: 90% !important;
+  height: 100%;
+  border-radius: 9px;
+ max-width: none;
+ object-fit: cover;
+}
+
+.content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.stats div {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.ratings {
+    margin-left: -175px;
+  display: flex;
+  justify-content: center;    /* center all ratings */
+  align-items: center;        /* align vertically */
+  gap: 20px;                  /* spacing between them */
+  flex-wrap: nowrap;          /* force single line */
+  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 20px;
+}
+
+.ratings div {
+  white-space: nowrap;        /* prevent line breaks */
+}
+
+
+.demo-btn {
+  background-color: #fbc531;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.features-section {
+  background-color: #d8e1f5;
+  color: #111;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.features-section h2 {
+  font-size: 2.1rem;
+  margin-bottom: 1rem;
+  color: #118ab3;
+}
+
+.features-section p {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: 1.15rem;
+  color: #444;
+}
+
+.features-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background-color: rgb(248, 240, 240);
+  color: black;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  flex: 1;
+  min-width: 300px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+ border-left: 5px solid #007bff; /* Left border in blue */
+  transition: all 0.3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+.feature-card h3 {
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: blue;
+  margin-bottom: 1.7rem !important;
+  color: white;
+}
+
+.feature-card ul {
+  text-align: left;
+  padding-left: 1rem;
+  list-style-type: disc;
+}
+
+.feature-card ul li {
+  margin-bottom:1.2rem;
+  font-size: 1rem;
+}
+/* FAQ Section */
+    #faq {
+      background: #f8faff;
+      padding: 6rem 0;
+    }
+
+    .faq-container {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding: 0 2rem;
+    }
+
+    .faq-item {
+      background: white;
+      border-left: 5px solid blue;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      color: black;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: rgba(0, 188, 212, 0.05);
+    }
+
+    .faq-question i {
+      color: #00bcd4;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem;
+      color: black;
+     margin-top: 13px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-question {
+      background: rgba(0, 188, 212, 0.1);
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 1.5rem 1.5rem;
+    }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: #fff;
+  color: #111;
+  margin: 5% auto;
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 8px;
+   overflow-y: auto;
+     scrollbar-width: none; 
+     border: 2px solid blue;
+   height: 60vh;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+/* Hide scrollbar - WebKit (Chrome, Safari, Edge) */
+.modal-content::-webkit-scrollbar {
+  display: none;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #0b80a7;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+label {
+    font-weight: 500 ;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.send-btn {
+  background-color: #06a020;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.send-btn:hover {
+  background-color: #06a020;
+}
+.feature-card h3 {
+ 
+  align-items: center;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+
+.feature-card i {
+  color: #0eecda;
+  font-size: 1.2rem;
+}
+
+ </style>
+</head>
+<body>
+  
+  <main>
+    <section class="hero">
+      <div class="content">
+        <h1>Assets Management System Software</h1>
+        <p>
+          Our software helps track, assign, and manage company assets efficiently. 
+          Access asset details, usage history, and request status anytime via web or mobile.
+        </p>
+        <div class="stats">
+          <div><strong>10+</strong><br/>Years of Presence</div>
+          <div><strong>15,000+</strong><br/>Clients</div>
+          <div><strong>300+</strong><br/>Staff</div>
+          <div><strong>600K+</strong><br/>Active Users</div>
+        </div>
+        <div class="ratings">
+          <div>⭐ 4.7/5 on Google</div>
+          <div>⭐ 5/5 on Capterra</div>
+          <div>⭐ 4.4/5 on G2</div>
+        </div>
+        <!-- Modal Trigger -->
+<button class="demo-btn">Schedule a demo</button>
+
+<!-- Modal -->
+<div id="scheduleModal" class="modal">
+  <div class="modal-content">
+    <span class="closeBtn">&times;</span>
+    <h2>Schedule Now</h2>
+    <form id="scheduleForm">
+      <div class="form-row">
+        <input type="text" placeholder="Company Name *" required>
+        <input type="text" placeholder="Contact Name *" required>
+      </div>
+
+      <div class="form-row">
+        <input type="text" placeholder="Contact Number *" required>
+        <input type="email" placeholder="Contact Email *" required>
+      </div>
+
+      <div class="form-group">
+        <label for="employees">Please select Number of employees</label>
+        <select id="employees" required>
+          <option value="">Select</option>
+          <option value="1-10">1-10</option>
+          <option value="11-50">11-50</option>
+          <option value="51+">51+</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Please choose your preference?</label><br>
+        <label><input type="radio" name="preference" value="demo"> Demo</label>
+        <label><input type="radio" name="preference" value="call" checked> Call</label>
+      </div>
+
+      <div class="form-row">
+        <input type="date" required>
+        <input type="time" required>
+      </div>
+
+      <textarea placeholder="Message *" required></textarea>
+
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="agreement" required>
+        <label for="agreement">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+      </div>
+
+    
+  <button type="submit" class="send-btn">Send Request</button>
+ <p id="successMessage" style="color: green; font-weight: bold; display: none; margin-top: 1rem;">
+  ✔️ Request sent successfully!
+</p>
+</form>
+  </div>
+</div>
+
+      </div>
+      <div class="mobile-preview">
+        <img src="image2.jpg" alt="Mobile UI" />
+      </div>
+    </section>
+    <section class="features-section">
+  <h2>Top Features of Assets Management Software</h2>
+  <p>
+    Our Asset Management Software includes a <strong>tiered access structure</strong> for efficient role-based management of company assets, ensuring that <strong>allocated assets are automatically tracked and logged</strong> in the HR & IT systems.
+  </p>
+
+  <div class="features-cards">
+    <div class="feature-card">
+      <h3><i class="fas fa-user"></i> Employees</h3>
+      <ul>
+        <li>Request assets online via browser or mobile.</li>
+        <li>Track the status of their requests in real-time.</li>
+        <li>View history of approved or declined asset allocations.</li>
+        <li>Submit return requests or mark assets as damaged/lost.</li>
+        <li>Receive notifications on asset approvals or due returns.</li>
+    </ul>
+    </div>
+
+    <div class="feature-card">
+      <h3><i class="fas fa-briefcase"></i> Asset Managers</h3>
+      <ul>
+        <li>Approve, reject, or reassign asset requests.</li>
+        <li>Access employee-specific asset records.</li>
+        <li>Receive alerts for asset returns or faults.</li>
+        <li>Generate reports on department-wise usage.</li>
+         <li>Set thresholds for critical asset availability.</li>
+    <li>Assign asset custodians for departmental responsibility.</li>
+    </ul>
+    </div>
+    <div class="feature-card">
+  <h3><i class="fas fa-tools"></i> IT Support</h3>
+  <ul>
+    <li>Assign pre-configured hardware or software assets to users.</li>
+    <li>Diagnose and log asset-related technical issues.</li>
+    <li>Schedule maintenance or updates for critical equipment.</li>
+    <li>Coordinate with vendors for replacements and repairs.</li>
+  </ul>
+</div>
+
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <h2 class="animate__animated animate__fadeIn">Frequently Asked Questions</h2>
+    <p class="text-center animate__animated animate__fadeIn animate__delay-1s">
+      Find answers to common questions about our Asset Management System.
+    </p>
+    <div class="faq-container">
+      
+      <div class="faq-item animate__animated animate__fadeIn">
+        <div class="faq-question">
+          <span>Can I set a limit for the number of assets an employee can request?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, you can configure asset request limits per employee through the admin dashboard.</p>
+        </div>
+      </div>
+
+      <div class="faq-item animate__animated animate__fadeIn animate__delay-1s">
+        <div class="faq-question">
+          <span>Can I edit an employee's asset request after submission?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, managers and admins can modify or cancel asset requests before approval.</p>
+        </div>
+      </div>
+
+      <div class="faq-item animate__animated animate__fadeIn animate__delay-2s">
+        <div class="faq-question">
+          <span>Does the Asset Management System integrate with the HRMS system?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, all asset assignments and returns are automatically updated in the HRMS system.</p>
+        </div>
+      </div>
+
+      <div class="faq-item animate__animated animate__fadeIn animate__delay-3s">
+        <div class="faq-question">
+          <span>Can I view old asset request history?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, the system stores a complete history of past requests, approvals, and returns for each user.</p>
+        </div>
+      </div>
+
+      <div class="faq-item animate__animated animate__fadeIn animate__delay-4s">
+        <div class="faq-question">
+          <span>Can I track the status of my asset request?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, you can track the status of each asset request in real-time via the platform’s dashboard. Notifications will also alert you when the status changes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item animate__animated animate__fadeIn animate__delay-5s">
+        <div class="faq-question">
+          <span>How do I return an asset once it's no longer needed?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Returning assets is simple! You can request an asset return through the platform, and once approved, the asset will be processed for return and restocking.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  </main>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      item.classList.toggle('active');
+    });
+  });
+ 
+ 
+    document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("scheduleModal");
+    const openBtn = document.querySelector(".demo-btn");
+    const closeBtn = document.querySelector(".closeBtn");
+    const form = document.getElementById("scheduleForm");
+    const successMessage = document.getElementById("successMessage");
+
+    if (openBtn && modal) {
+      openBtn.addEventListener("click", () => {
+        modal.style.display = "block";
+        successMessage.style.display = "none";
+        form.reset();
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+    }
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        successMessage.style.display = "block";
+
+        setTimeout(() => {
+          modal.style.display = "none";
+        }, 2000);
+      });
+    }
+  });
+ 
+
+</script>
+</body>
+</html>
