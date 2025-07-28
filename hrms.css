@@ -470,7 +470,7 @@ body {
     }
 /* ----------------------------------------about styling------------------------------- */
 
-/* Global Styles */
+/* Global Styles
 
 /* Global Styles */
 * {
@@ -781,7 +781,7 @@ body {
   color: #555;
   font-size: 15px;
   line-height: 1.5;
-}
+} */
 
 /* -----------------------------------Careers Styling-------------------------------------- */
 * {
@@ -971,13 +971,13 @@ body {
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     perspective: 1000px;
-    flex: 0 0 160px;
+    flex: 0 0 10px;
     margin: 0 0.5rem;
 }
 
 .partner-circle {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background: white;
     display: flex;
@@ -992,8 +992,8 @@ body {
 }
 
 .partner-logo {
-    max-width: 120%;
-    max-height: 140%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     opacity: 0.9;

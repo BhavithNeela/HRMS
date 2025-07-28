@@ -38,8 +38,8 @@ body {
 
 }
 .about-image {
-  width: 150%;
-  height: 85vh; /* Fills entire screen height */
+  width: 50%;
+  height: 50vh; /* Fills entire screen height */
   display: flex;
   align-items: stretch;
   justify-content: stretch;

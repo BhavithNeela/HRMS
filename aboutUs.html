@@ -1,0 +1,1355 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - HRMS Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Segoe+UI:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern CSS Variables */
+        :root {
+            --primary: #4e54c8;
+            --secondary: #8f94fb;
+            --accent: #6a71e8;
+            --dark: #2a2d7a;
+            --light: #f7f7f7;
+            --text: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --danger: #f44336;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-md: 0 5px 15px rgba(0,0,0,0.15);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.2);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
+            --gradient-dark: linear-gradient(135deg, var(--dark), var(--primary));
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+            margin-top: -100px;
+        }
+        
+        .section {
+            padding: 10px 0;
+            position: relative;
+        }
+        
+        .section-heading {
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            color: var(--primary);
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
+        }
+        
+        /* Particle Background */
+        .particles-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header with Glowing Effect */
+        header {
+            background: var(--gradient-dark);
+            color: var(--white);
+            padding: 150px 20px 180px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23f7f7f7" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23f7f7f7" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f7f7f7"/></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .header-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .header-text {
+            text-align: left;
+        }
+        
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeDown 1s ease forwards 0.3s;
+        }
+        
+        header p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeDown 1s ease forwards 0.5s;
+        }
+        
+        .header-image {
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeDown 1s ease forwards 0.7s;
+        }
+        
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: var(--gradient-dark);
+            color: var(--white);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/diagonal-stripes.png');
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 8px 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(50px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(143,148,251,0.2) 0%, rgba(78,84,200,0.2) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .stat-item:hover::before {
+            opacity: 1;
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1px;
+            color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover .stat-icon {
+            transform: scale(1.2) translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1px;
+            background: linear-gradient(to right, var(--white), #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .stat-number::after {
+            content: '+';
+            position: absolute;
+            right: -15px;
+            top: 0;
+            font-size: 2rem;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover .stat-label {
+            opacity: 1;
+            transform: translateY(5px);
+        }
+        
+        /* Core Values Section - Enhanced Animations */
+        .values-section {
+            padding: 110px 0;
+            background: var(--light);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background: rgb(228, 242, 248);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            transform: translateY(50px);
+            opacity: 0;
+            position: relative;
+            padding: 40px 30px;
+            text-align: center;
+            border: 3px solid transparent;
+            animation-delay: calc(var(--order) * 0.1s);
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        
+        .value-card:hover::before {
+            height: 10px;
+            background: var(--gradient-primary);
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            background: rgba(143,148,251,0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            transform-style: preserve-3d;
+        }
+        
+        .value-card:hover .value-icon {
+            background: var(--gradient-primary);
+            color: var(--white);
+            transform: rotateY(180deg) scale(1.1);
+            box-shadow: 0 10px 20px rgba(106, 113, 232, 0.3);
+        }
+        
+        .value-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .value-card:hover .value-content h3 {
+            color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .value-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        .value-card:hover .value-content p {
+            color: var(--text);
+            transform: translateY(5px);
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .features-section {
+  color: white;
+  /* padding: 5px 20px; */
+  text-align: center;
+  margin-top: -50px;
+}
+
+.features-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  color:#0679f4; ;
+  text-align: center;
+}
+
+.features-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.feature-card {
+  background-color: #d7e6f3;
+  flex: 1 1 30%;
+  padding: 40px 30px;
+  border-radius: 8px;
+  position: relative;
+  text-align: left;
+  background-size: cover;
+  background-position: center;
+  min-height: 250px;
+  color: white;
+  overflow: hidden;
+}
+
+.card-yellow {
+  background-color: #f4ac06;
+  color: #000;
+}
+
+.card-yellow h3,
+.card-yellow ul li {
+  color: #000;
+}
+
+.card-img::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.feature-card * {
+  position: relative;
+  z-index: 1;
+}
+
+.icon-circle {
+  width: 100px;
+  height: 100px;
+  background: #0679f4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.card-yellow .icon-circle {
+  background: #000;
+  color: #f4ac06;
+}
+
+.icon-circle i {
+  color: white;
+  font-size: 1.8rem;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.feature-card ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.feature-card ul li {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+        
+        /* Team Section with Rotating Borders Only */
+        .team-section {
+            padding: 150px 0;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-container {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 20px;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .team-container::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+        
+        .team-member {
+            height: 350px;
+            min-width: 250px;
+            perspective: 1000px;
+            scroll-snap-align: start;
+            position: relative;
+            padding: 5px; /* Space for the rotating border */
+        }
+        
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            z-index: -1;
+            border-radius: 25px;
+            animation: rotateBorder 4s linear infinite;
+            opacity: 0;
+            transition: var(--transition);
+            background-size: 200% 200%;
+        }
+        
+        .team-member:hover::before {
+            opacity: 1;
+        }
+        
+        @keyframes rotateBorder {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        .team-member-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            opacity: 0;
+            transform: translateY(50px);
+            background: var(--white);
+        }
+        
+        .team-member:hover .team-member-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .team-member-front,
+        .team-member-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border: 2px solid blue;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--white);
+        }
+        
+        .team-member-front {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .team-member-back {
+            transform: rotateY(180deg);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--gradient-dark);
+            color: var(--white);
+        }
+        
+        .team-member-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        .team-member:hover .team-member-img {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+        
+        .team-member-name {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+        
+        .team-member-role {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .team-member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .team-member-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .team-member-social a:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+        
+        .team-member-back h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .team-member-back p {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .team-member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: auto;
+        }
+        
+        .skill-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* Clients Section */
+        .clients-section {
+            padding: 10px 0;
+            background: var(--white);
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            align-items: center;
+            justify-items: center;
+        }
+        
+        .client-logo {
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: var(--transition);
+            max-width: 120px;
+            max-height: 60px;
+            object-fit: contain;
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .header-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-text {
+                order: 1;
+                text-align: center;
+            }
+            
+            .header-image {
+                order: 2;
+                height: 300px;
+            }
+            
+            .section-heading {
+                font-size: 2.4rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+            
+            header p {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-heading {
+                font-size: 2rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            header {
+                padding: 100px 20px 140px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-heading {
+                font-size: 1.8rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Particles -->
+    <header>
+        <div class="particles-bg" id="particles-bg"></div>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>About HRMS</h1>
+                    <p>Our vision is to revolutionize workforce management through a smart, scalable HRMS solution that empowers organizations 
+                       to streamline recruitment, automate payroll, manage performance, and enhance employee engagement. </p>
+                </div>
+                
+                <div class="header-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="HR Team Collaboration">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number" data-count="5000">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                    <div class="stat-number" data-count="45">0</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-server"></i></div>
+                    <div class="stat-number" data-count="99.9">0</div>
+                    <div class="stat-label">Uptime %</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-headset"></i></div>
+                    <div class="stat-number" data-count="24">0</div>
+                    <div class="stat-label">Support Hours</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-heading">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card" style="--order: 1">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Innovation</h3>
+                        <p>We constantly push boundaries to develop cutting-edge HR solutions that anticipate and meet the evolving needs of modern workplaces.</p>
+                    </div>
+                </div>
+                
+                <div class="value-card" style="--order: 2">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Integrity</h3>
+                        <p>We maintain the highest ethical standards in all our interactions, ensuring trust and transparency with our clients and partners.</p>
+                    </div>
+                </div>
+                
+                <div class="value-card" style="--order: 3">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Empathy</h3>
+                        <p>We design our solutions with a deep understanding of human needs, creating technology that serves people first.</p>
+                    </div>
+                </div>
+                
+                <div class="value-card" style="--order: 4">
+                    <div class="value-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Excellence</h3>
+                        <p>We strive for perfection in everything we do, delivering quality and reliability that exceeds expectations.</p>
+                    </div>
+                </div>
+                
+                <div class="value-card" style="--order: 5">
+                    <div class="value-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Collaboration</h3>
+                        <p>We believe in the power of teamwork, both within our organization and in partnership with our clients.</p>
+                    </div>
+                </div>
+                
+                <div class="value-card" style="--order: 6">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Growth</h3>
+                        <p>We are committed to continuous learning and improvement, fostering an environment where everyone can thrive.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+  <div class="features-header">
+    <h2>Why Choose Us</h2>
+  </div>
+
+  <div class="features-cards">
+    <!-- Card 1 -->
+    <div class="feature-card card-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU-lLzj73kNVbNo1r6VHx-rTmvaleiKkhTgA&s');">
+      <div class="icon-circle"><i class="fa fa-lock"></i></div>
+      <h3>Secure Employee Data</h3>
+      <ul>
+        <li>Role-based access</li>
+        <li>Encrypted storage</li>
+        <li>Cloud backup & recovery</li>
+        <li>GDPR-compliant</li>
+      </ul>
+    </div>
+
+      <!-- Card 3 -->
+    <div class="feature-card card-img" style="background-image: url('https://static.vecteezy.com/system/resources/previews/014/770/514/non_2x/executives-touch-human-resource-network-structure-hr-effective-management-and-recruitment-of-hr-effective-organizational-structure-training-employment-practice-photo.jpg');">
+      <div class="icon-circle"><i class="fa fa-globe"></i></div>
+      <h3>Global HR Operations</h3>
+      <ul>
+        <li>Multi-Language Interface</li>
+        <li>Time-zone Adaptability</li>
+        <li>Remote Team Access</li>
+        <li>Real-time Reporting</li>
+      </ul>
+    </div>
+    <!-- Card 3: Employee Engagement -->
+<div class="feature-card card-img" style="background-image: url('https://e0.pxfuel.com/wallpapers/1017/254/desktop-wallpaper-what-makes-a-human-resource-management-system-unique-human-resources.jpg');">
+  <div class="icon-circle"><i class="fa fa-users"></i></div>
+  <h3>Employee Engagement</h3>
+  <ul>
+    <li>Surveys & Feedback</li>
+    <li>Employee Recognition Tools</li>
+    <li>Pulse Polls & Announcements</li>
+    <li>Interactive HR Portal</li>
+  </ul>
+</div>
+<!-- Card 4: Smart HR Tools
+<div class="feature-card card-img" style="background-image: url('https://img.freepik.com/free-photo/data-graph-chart-business-strategy-analysis-concept_53876-132624.jpg');">
+  <div class="icon-circle"><i class="fa fa-chart-line"></i></div>
+  <h3>Smart HR Tools</h3>
+  <ul>
+    <li>AI-powered Recruitment</li>
+    <li>Real-Time Analytics</li>
+    <li>Automated Workflows</li>
+    <li>Predictive Insights</li>
+  </ul>
+</div> -->
+ </div>
+</section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-heading">Meet Our Leadership Team</h2>
+            
+            <div class="team-container">
+                <div class="team-member">
+                    <div class="team-member-inner">
+                        <div class="team-member-front">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Jennifer Lee" class="team-member-img">
+                            <h3 class="team-member-name">Jennifer Lee</h3>
+                            <p class="team-member-role">CEO & Founder</p>
+                            <div class="team-member-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-member-back">
+                            <h3>About Jennifer</h3>
+                            <p>With 15+ years in HR tech, Jennifer founded HRMS Pro to bridge the gap between HR operations and strategic decision-making.</p>
+                            <div class="team-member-skills">
+                                <span class="skill-tag">HR Strategy</span>
+                                <span class="skill-tag">Product Vision</span>
+                                <span class="skill-tag">Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-member-inner">
+                        <div class="team-member-front">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Rodriguez" class="team-member-img">
+                            <h3 class="team-member-name">David Rodriguez</h3>
+                            <p class="team-member-role">CTO</p>
+                            <div class="team-member-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-member-back">
+                            <h3>About David</h3>
+                            <p>Technology innovator with expertise in AI and cloud computing, leading our engineering team to build scalable solutions.</p>
+                            <div class="team-member-skills">
+                                <span class="skill-tag">AI/ML</span>
+                                <span class="skill-tag">Cloud Architecture</span>
+                                <span class="skill-tag">Data Security</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-member-inner">
+                        <div class="team-member-front">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Williams" class="team-member-img">
+                            <h3 class="team-member-name">Sarah Williams</h3>
+                            <p class="team-member-role">VP Product</p>
+                            <div class="team-member-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-member-back">
+                            <h3>About Sarah</h3>
+                            <p>Product strategist focused on creating intuitive HR solutions that solve real-world challenges for organizations of all sizes.</p>
+                            <div class="team-member-skills">
+                                <span class="skill-tag">UX Design</span>
+                                <span class="skill-tag">Product Strategy</span>
+                                <span class="skill-tag">Market Research</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-member-inner">
+                        <div class="team-member-front">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="James Kim" class="team-member-img">
+                            <h3 class="team-member-name">James Kim</h3>
+                            <p class="team-member-role">VP Customer Success</p>
+                            <div class="team-member-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fas fa-phone-alt"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-member-back">
+                            <h3>About James</h3>
+                            <p>Dedicated to ensuring client success through personalized onboarding, training, and ongoing support for optimal platform utilization.</p>
+                            <div class="team-member-skills">
+                                <span class="skill-tag">Client Relations</span>
+                                <span class="skill-tag">Training</span>
+                                <span class="skill-tag">Support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-member-inner">
+                        <div class="team-member-front">
+                            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Emma Johnson" class="team-member-img">
+                            <h3 class="team-member-name">Emma Johnson</h3>
+                            <p class="team-member-role">VP Marketing</p>
+                            <div class="team-member-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-member-back">
+                            <h3>About Emma</h3>
+                            <p>Marketing expert with a passion for storytelling and brand building in the HR technology space.</p>
+                            <div class="team-member-skills">
+                                <span class="skill-tag">Brand Strategy</span>
+                                <span class="skill-tag">Digital Marketing</span>
+                                <span class="skill-tag">Content Creation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-member-inner">
+                        <div class="team-member-front">
+                            <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Robert Chen" class="team-member-img">
+                            <h3 class="team-member-name">Robert Chen</h3>
+                            <p class="team-member-role">VP Engineering</p>
+                            <div class="team-member-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-member-back">
+                            <h3>About Robert</h3>
+                            <p>Software architect with expertise in building scalable, secure enterprise solutions for HR management.</p>
+                            <div class="team-member-skills">
+                                <span class="skill-tag">System Architecture</span>
+                                <span class="skill-tag">DevOps</span>
+                                <span class="skill-tag">Security</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <script>
+        // Animate elements when they come into view
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.section-heading, .header-image, .value-card, .stat-item, .team-member-inner');
+            
+            elements.forEach(el => {
+                const elementPosition = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    if (el.classList.contains('section-heading')) {
+                        el.style.animation = 'fadeDown 1s ease forwards';
+                    } else if (el.classList.contains('header-image')) {
+                        el.style.animation = 'fadeDown 1s ease forwards';
+                    } else if (el.classList.contains('value-card')) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    } else if (el.classList.contains('stat-item')) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                        startCounter(el.querySelector('.stat-number'));
+                    } else if (el.classList.contains('team-member-inner')) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    }
+                }
+            });
+        }
+        
+        // Counter animation for stats
+        function startCounter(element) {
+            if (element.dataset.animated) return;
+            element.dataset.animated = true;
+            
+            let target;
+            if (element.getAttribute('data-count') === '99.9') {
+                target = 99.9;
+            } else {
+                target = parseInt(element.getAttribute('data-count'));
+            }
+            
+            const duration = 2000; // Animation duration in ms
+            const increment = target / (duration / 16); // 60fps
+            
+            let current = 0;
+            const counter = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    clearInterval(counter);
+                    if (target === 99.9) {
+                        element.textContent = '99.9';
+                    } else {
+                        element.textContent = target;
+                    }
+                } else {
+                    if (target === 99.9) {
+                        element.textContent = current.toFixed(1);
+                    } else {
+                        element.textContent = Math.floor(current);
+                    }
+                }
+            }, 16);
+        }
+        
+        // Create particles for header background
+        function createParticles() {
+            const particlesBg = document.getElementById('particles-bg');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 10px and 25px
+                const size = Math.random() * 15 + 10;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration between 10s and 20s
+                const duration = Math.random() * 10 + 10;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesBg.appendChild(particle);
+            }
+        }
+        
+        // Change header image every 2 seconds
+        function rotateHeaderImages() {
+            const images = [
+                'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+                'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+                'https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80'
+            ];
+            
+            const headerImage = document.querySelector('.header-image img');
+            let currentIndex = 0;
+            
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % images.length;
+                headerImage.style.opacity = 0;
+                
+                setTimeout(() => {
+                    headerImage.src = images[currentIndex];
+                    headerImage.style.opacity = 1;
+                }, 500);
+            }, 2000);
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            animateOnScroll();
+            rotateHeaderImages();
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
