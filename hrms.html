@@ -13,7 +13,20 @@
 <body style="background-color: #e1f2fa;">
   <!-- Header with Navigation -->
   <header class="headerMain flex justify-between items-center w-full px-4">
-    <div class="text-4xl font-bold text-blue-700">HRMS</div>
+    
+    <div class="text-4xl font-bold text-blue-700">
+      <div>
+        HRMS
+      </div>
+      <div style="font-size: 20px;">
+       Astrolite <span style="color: red;">
+       Tech
+       </span>
+       <span style="color:black">
+Solutions
+       </span> 
+      </div>
+      </div>
     <nav class="flex space-x-4 items-center">
       <a href="#home" class="nav-link" onclick="showSection('home')">Home</a>
       <div class="dropdown">
@@ -31,11 +44,11 @@
         </div>
       </div>
       <!-- onclick="loadPage('testimonials.html')" -->
-      <a href="#testimonials" class="dropbtn nav-link" >Testimonials</a>
+      <a href="#testimonials" onclick="showSection('home')"  class="dropbtn nav-link" >Testimonials</a>
       <a href="#about"  class="dropbtn nav-link" onclick="loadPage('aboutUs.html')" >About</a>
-      <a href="#careers"  class="dropbtn nav-link" >Careers</a>
+      <a href="#careers" onclick="showSection('home')"  class="dropbtn nav-link" >Careers</a>
       <a href="#"  onclick="loadPage('pricing.html')" class="dropbtn nav-link">Pricing</a>
-      <a href="#contact"  class="dropbtn nav-link" >Contact Us</a>
+      <a href="hrms.html#contact" onclick="showSection('home')" class="dropbtn nav-link" target="_parent" >Contact Us</a>
     </nav>
   </header>
 
@@ -727,20 +740,7 @@
     </div>
 </section>
 
-    
-    
-  </main>
 
-  <!-- Iframe Content for Other Pages -->
-  <div id="iframe-content" class="main-content" style="display: none;">
-    <section id="dynamic-section" class="section">
-      <div class="iframe-wrapper">
-        <iframe id="testimonialsFrame" src="testimonials.html" width="100%" height="calc(100vh - 80px)" frameborder="0" style="border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"></iframe>
-      </div>
-    </section>
-  </div>
-
-  <!-- Footer -->
 <footer id="footer" class="footer">
     <div class="flex justify-between items-start w-full max-w-7xl mx-auto px-4 py-6">
       <div class="text-white">
@@ -793,6 +793,20 @@
       <p class="text-sm text-white">© 2025 © company Ltd. All Right Reserved</p>
     </div>
   </footer>
+    
+    
+  </main>
+
+  <!-- Iframe Content for Other Pages -->
+  <div id="iframe-content" class="main-content" >
+    <section id="dynamic-section" class="section">
+      <div class="iframe-wrapper">
+<iframe id="testimonialsFrame" src="testimonials.html" width="100%" height="100%" frameborder="0"></iframe>      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+
 
   <!-- JavaScript for Dynamic Content -->
   <script>

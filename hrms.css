@@ -44,7 +44,7 @@ body {
 .nav-link {
   color: #4b5563;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 20px;
   padding: 0.5rem 1rem;
   text-decoration: none;
   transition: color 0.3s;
@@ -336,28 +336,38 @@ body {
   background-color: #1e3a8a;
   transform: translateY(-2px);
 }
+
 /* Iframe Styling within Main Content */
 #iframe-content {
   display: none;
-  justify-content: center;
-  width: 200%;
-  margin-left: -15px;
-  margin-top: 70px;
-  padding: 0 2rem;
+  width: 100%; /* Revert to original approach, but use 100% instead of 200% */
+  margin: 0; /* Remove negative margin to fix width alignment */
+  margin-top: 80px; /* Match original margin-top (adjusted from 70px to align with header) */
+  padding: 0; /* Remove padding to ensure full width */
+  min-height: calc(100vh - 80px); /* Use min-height to ensure full viewport height minus header */
+  background-color: #e1f2fa; /* Match other sections */
+  overflow: hidden; /* Prevent unwanted scrollbars */
 }
+
 #iframe-content.active {
   display: block;
 }
+
 .iframe-wrapper {
-  width: 100%;
+  width: 100%; /* Full width of parent */
+  min-height: 100%; /* Ensure wrapper takes full height of #iframe-content */
+  overflow: hidden; /* Prevent scrollbars */
 }
+
 #testimonialsFrame {
   border: none;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  min-height: 680px;
+  border-radius: 0; /* Remove border-radius for full-screen effect */
+  box-shadow: none; /* Remove shadow for cleaner look */
+  width: 100%; /* Full width */
+  min-height: 100%; /* Full height of wrapper */
+  height: calc(100vh - 80px); /* Explicitly set iframe height to match viewport */
   display: block;
+  overflow-y: auto; /* Allow scrolling within iframe if content is too tall */
 }
 /* Footer Styling */
 .footer {
