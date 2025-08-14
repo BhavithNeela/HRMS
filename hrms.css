@@ -44,7 +44,7 @@ body {
 .nav-link {
   color: #4b5563;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 22px;
   padding: 0.5rem 1rem;
   text-decoration: none;
   transition: color 0.3s;
@@ -98,7 +98,7 @@ body {
 .main-content {
   margin-top: 80px;
   /* padding: 2rem; */
-  max-width: 1300px;
+  max-width: none;
   /* margin-left: a; */
   /* margin-right: auto; */
 }
@@ -134,7 +134,7 @@ body {
 .hero-Maincontainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 4.5rem;
   align-items: center;
   position: relative;
   z-index: 2; /* Ensure content is above particles */
@@ -146,7 +146,7 @@ body {
 
 .hero-Maincontent h1 {
   font-size: 3.5rem;
-  font-weight: 800;
+  font-weight: 900;
   color: white;
   margin-bottom: 1.5rem;
   line-height: 1.2;
@@ -215,10 +215,10 @@ body {
 
 .hero-visual {
   position: absolute; /* Fix the visual section in place */
-  right: 2rem; /* Align to the right side of the viewport */
+  right: 1rem; /* Align to the right side of the viewport */
   top: 8rem; /* Align below the header */
   width: 50%; /* Match the grid column width */
-  max-width: 600px; /* Match the grid container's max-width */
+  max-width: 650px; /* Match the grid container's max-width */
   height: 500px; /* Fixed height */
   z-index: 0; /* Below text content but above particles */
   display: flex;
